@@ -1,3 +1,7 @@
+<p align="center">
+<img src="./src/assets/nodepop.svg" width="320" alt="Nodepop">
+</p>
+
 **Nodepop** is a practice project of the **KeepCoding** module _Advanced React Development_.
 
 ## 📌 Table of Contents
