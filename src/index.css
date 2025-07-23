@@ -27,18 +27,18 @@
   @apply box-border;
 }
 
-h1,
 h2,
-h3 {
+h3,
+h4 {
   @apply font-heading mb-4;
 }
-h1 {
+h2 {
   @apply text-4xl font-extrabold;
 }
-h2 {
+h3 {
   @apply text-3xl font-bold;
 }
-h3 {
+h4 {
   @apply text-2xl font-bold;
 }
 
@@ -58,7 +58,7 @@ h3 {
 }
 
 .btn {
-  @apply flex cursor-pointer rounded-lg border px-6 py-3 font-medium transition hover:scale-110 hover:opacity-75 hover:shadow-xl;
+  @apply flex cursor-pointer items-center gap-2 rounded-lg border px-6 py-3 font-medium transition hover:scale-110 hover:opacity-75 hover:shadow-xl;
 }
 .btn-primary {
   @apply bg-primary border-primary text-white;
@@ -70,6 +70,14 @@ h3 {
   @apply bg-destructive border-destructive text-white;
 }
 
-.dropdown:focus-within .dropdown-menu {
+.nav-item {
+  @apply text-primary flex cursor-pointer items-center gap-1 font-medium transition hover:scale-110 hover:opacity-75;
+}
+
+.popover:focus-within .popover-menu {
   @apply visible translate-0 scale-100 opacity-100;
+
+  li {
+    @apply transition hover:opacity-50;
+  }
 }

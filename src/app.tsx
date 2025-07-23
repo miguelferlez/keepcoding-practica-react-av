@@ -1,11 +1,22 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet, Route, Routes } from "react-router";
 import Layout from "./components/layout/layout";
+import AdvertsPage from "./pages/adverts/adverts-page";
 
 function App() {
   return (
-    <Layout>
-      <Outlet />
-    </Layout>
+    <Routes>
+      <Route index element={<Navigate to="/adverts" />}></Route>
+      <Route
+        path="/adverts"
+        element={
+          <Layout>
+            <Outlet />
+          </Layout>
+        }
+      >
+        <Route index element={<AdvertsPage />}></Route>
+      </Route>
+    </Routes>
   );
 }
 
