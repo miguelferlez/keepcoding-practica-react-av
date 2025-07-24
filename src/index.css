@@ -3,10 +3,10 @@
 :root {
   --font-heading: "Poppins", sans-serif;
   --font-paragraph: "Hind", sans-serif;
-  --font-color: #3a3b7b;
+  --font-color: #757575;
   --color-background: #ffffff;
-  --color-primary: #7476ed;
-  --color-destructive: #e56f8c;
+  --color-primary: #757575;
+  --color-destructive: #ce4064;
 
   font-family: var(--font-paragraph);
   font-size: 1rem;
@@ -58,7 +58,7 @@ h4 {
 }
 
 .btn {
-  @apply flex cursor-pointer items-center gap-2 rounded-lg border px-6 py-3 font-medium transition hover:scale-110 hover:opacity-75 hover:shadow-xl;
+  @apply flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-1.5 transition hover:scale-110 hover:opacity-75 hover:shadow-xl sm:px-6 sm:py-3 sm:font-medium;
 }
 .btn-primary {
   @apply bg-primary border-primary text-white;

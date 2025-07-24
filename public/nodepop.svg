@@ -1,4 +1,8 @@
 <svg data-logo="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46.2 43.4">
-  <g id="logogram" transform="translate(0, 1.1999999999999993) rotate(0) "><path transform="translate(-24)" d="M31.3536 0.0799581L69.9128 38.6391V0.0799561H59.478V12.2538L47.3041 0.0799561L31.3536 0.0799581Z" fill="#E56F8C"/><path d="M0.150879 1.41904V40.0798H10.5857V27.9058L22.7595 40.0798H38.8117L0.150879 1.41904Z" fill="#7476ED"/></g>
+  <linearGradient id="gradient" x2="1" y2="1">
+    <stop offset="0%" stop-color="#49c8ff" />
+    <stop offset="100%" stop-color="#bd34fe" />
+  </linearGradient>
+  <g id="logogram" transform="translate(0, 1.1999999999999993) rotate(0) "><path transform="translate(-24)" d="M31.3536 0.0799581L69.9128 38.6391V0.0799561H59.478V12.2538L47.3041 0.0799561L31.3536 0.0799581Z" fill="url(#gradient)"/><path d="M0.150879 1.41904V40.0798H10.5857V27.9058L22.7595 40.0798H38.8117L0.150879 1.41904Z" fill="#757575"/></g>
 </svg>
     
