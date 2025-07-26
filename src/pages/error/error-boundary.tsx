@@ -1,5 +1,4 @@
 import { Component, type ReactNode, type ErrorInfo } from "react";
-import { Link } from "react-router";
 import Button from "../../components/ui/button";
 
 interface ErrorBoundaryProps {

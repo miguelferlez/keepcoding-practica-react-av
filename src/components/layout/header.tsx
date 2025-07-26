@@ -1,6 +1,5 @@
 import { Link } from "react-router";
 import AppLogo from "../icons/app-logo";
-import Button from "../ui/button";
 import Popover from "../ui/popover";
 import AuthButton from "../../pages/auth/components/auth-button";
 
@@ -25,7 +24,6 @@ function Header() {
             </li>
             <li>
               <AuthButton />
-              {/* <Button label="Log In" variant="primary" /> */}
             </li>
           </ul>
         </nav>
