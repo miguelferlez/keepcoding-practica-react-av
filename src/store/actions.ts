@@ -1,6 +1,7 @@
 import type { AppThunk } from "./index";
 import type { Credentials } from "../pages/auth/types";
 import { login } from "../services/auth";
+import { AxiosError } from "axios";
 
 // Auth
 
@@ -14,7 +15,7 @@ type AuthLoginPending = {
 
 type AuthLoginRejected = {
   type: "auth/login/rejected";
-  payload: Error;
+  payload: AxiosError<{ message: string }>;
 };
 
 type AuthLogout = {
@@ -29,7 +30,9 @@ const authLoginPending = (): AuthLoginPending => ({
   type: "auth/login/pending",
 });
 
-const authLoginRejected = (error: Error): AuthLoginRejected => ({
+const authLoginRejected = (
+  error: AxiosError<{ message: string }>,
+): AuthLoginRejected => ({
   type: "auth/login/rejected",
   payload: error,
 });
@@ -44,7 +47,7 @@ export function authLogin(
       await login(credentials, remember);
       dispatch(authLoginFulfilled());
     } catch (error) {
-      if (error instanceof Error) {
+      if (error instanceof AxiosError) {
         dispatch(authLoginRejected(error));
       }
       throw error;
@@ -58,11 +61,11 @@ export function authLogout(): AuthLogout {
 
 // UI
 
-type AlertResetError = {
+type UiResetError = {
   type: "ui/reset-error";
 };
 
-export function alertResetError(): AlertResetError {
+export function uiResetError(): UiResetError {
   return { type: "ui/reset-error" };
 }
 
@@ -71,4 +74,4 @@ export type Actions =
   | AuthLoginPending
   | AuthLoginRejected
   | AuthLogout
-  | AlertResetError;
+  | UiResetError;

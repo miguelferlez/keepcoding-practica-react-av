@@ -1,0 +1,91 @@
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import type { Credentials } from "./types";
+import { useAppSelector } from "../../store";
+import { getUi } from "../../store/selectors";
+import { useLoginAction, useUiResetErrorAction } from "../../store/hooks";
+import { useLocation, useNavigate } from "react-router";
+import { AxiosError } from "axios";
+import Alert from "../../components/ui/alert";
+import InputField from "../../components/shared/input-field";
+import Button from "../../components/ui/button";
+
+function LoginPage() {
+  const [credentials, setCredentials] = useState<Credentials>({
+    email: "",
+    password: "",
+  });
+  const { email, password } = credentials;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const loginAction = useLoginAction();
+  const uiResetErrorAction = useUiResetErrorAction();
+  const { pending: isSubmitting, error } = useAppSelector(getUi);
+  const isDisabled = !email || !password || isSubmitting;
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setCredentials((credentials) => ({
+      ...credentials,
+      [event.target.name]: event.target.value,
+    }));
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    try {
+      await loginAction(credentials, true);
+      navigate(location.state?.from ?? "/", { replace: true });
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error);
+      }
+    }
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      <div className="border-primary/15 max-w-md rounded-lg border p-8 shadow-xl">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-center">Log In</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col">
+            <InputField
+              type="text"
+              label="Username"
+              id="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+              required
+            />
+            <InputField
+              type="password"
+              label="Password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              required
+            />
+            <Button
+              type="submit"
+              label="Submit"
+              disabled={isDisabled}
+              variant="primary"
+            />
+          </form>
+        </div>
+      </div>
+      <div className="fixed top-4 left-1/2 z-50 -translate-x-1/2">
+        {error && (
+          <Alert
+            text={error.response?.data?.message || error.message}
+            variant="error"
+            onClick={() => uiResetErrorAction()}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default LoginPage;

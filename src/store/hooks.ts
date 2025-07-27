@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from ".";
 import type { Credentials } from "../pages/auth/types";
-import { authLogin, authLogout, alertResetError } from "./actions";
+import { authLogin, authLogout, uiResetError } from "./actions";
 import { getIsLogged } from "./selectors";
 
 export function useAuth() {
@@ -20,9 +20,9 @@ export function useLogoutAction() {
   };
 }
 
-export function useAlertResetAction() {
+export function useUiResetErrorAction() {
   const dispatch = useAppDispatch();
   return function () {
-    return dispatch(alertResetError());
+    return dispatch(uiResetError());
   };
 }

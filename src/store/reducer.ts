@@ -1,10 +1,11 @@
+import type { AxiosError } from "axios";
 import type { Actions } from "./actions";
 
 export type State = {
   auth: boolean;
   ui: {
     pending: boolean;
-    error: Error | null;
+    error: AxiosError<{ message: string }> | null;
   };
 };
 
@@ -37,7 +38,7 @@ export function ui(state = defaultState.ui, action: Actions): State["ui"] {
     case "auth/login/fulfilled":
       return { pending: false, error: null };
     case "auth/login/rejected":
-      return { pending: false, error: state.error };
+      return { pending: false, error: action.payload };
     case "ui/reset-error":
       return { ...state, error: null };
     default:

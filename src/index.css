@@ -48,7 +48,7 @@ h4 {
 
 .divide-t,
 .divide-b {
-  @apply border-black/15;
+  @apply border-neutral-500/15;
 }
 .divide-t {
   @apply border-t;
@@ -58,7 +58,7 @@ h4 {
 }
 
 .btn {
-  @apply flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-1.5 transition hover:scale-110 hover:opacity-75 hover:shadow-xl sm:px-6 sm:py-3 sm:font-medium;
+  @apply flex cursor-pointer items-center justify-center gap-2 rounded-lg border px-3 py-1.5 transition hover:scale-110 hover:opacity-75 hover:shadow-xl disabled:pointer-events-none disabled:opacity-15 sm:px-4 sm:py-2 sm:font-medium;
 }
 .btn-primary {
   @apply bg-primary border-primary text-white;
@@ -74,10 +74,30 @@ h4 {
   @apply text-primary flex cursor-pointer items-center gap-1 font-medium transition hover:scale-110 hover:opacity-75;
 }
 
-.popover:focus-within .popover-menu {
-  @apply visible translate-0 scale-100 opacity-100;
-
-  li {
-    @apply transition hover:opacity-50;
+.popover:focus-within {
+  button:first-child {
+    @apply scale-110 opacity-75 transition;
   }
+  .popover-menu {
+    @apply visible translate-0 scale-100 opacity-100;
+    li {
+      @apply transition hover:opacity-50;
+    }
+  }
+}
+
+.alert {
+  @apply flex w-full max-w-xs cursor-pointer items-center gap-6 rounded-lg border px-4 py-2 text-white transition hover:scale-110 hover:opacity-75 hover:shadow-sm;
+}
+.alert-error {
+  @apply border-destructive bg-destructive;
+}
+.alert-success {
+  @apply border-teal-600 bg-teal-600;
+}
+.alert-warning {
+  @apply border-amber-600 bg-amber-600;
+}
+.alert-info {
+  @apply text-primary border-primary;
 }
