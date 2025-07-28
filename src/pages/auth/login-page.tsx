@@ -44,12 +44,12 @@ function LoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <div className="border-primary/15 max-w-md rounded-lg border p-8 shadow-xl">
+      <div className="xs:border-primary/15 xs:rounded-lg xs:border xs:shadow-xl p-8 sm:max-w-md">
         <div className="flex flex-col gap-4">
           <h2 className="text-center">Log In</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-2">
             <InputField
-              type="text"
+              type="email"
               label="Username"
               id="email"
               name="email"
@@ -75,7 +75,7 @@ function LoginPage() {
           </form>
         </div>
       </div>
-      <div className="fixed top-4 left-1/2 z-50 -translate-x-1/2">
+      <div className="fixed top-11.5 left-1/2 z-50 -translate-x-1/2">
         {error && (
           <Alert
             text={error.response?.data?.message || error.message}
