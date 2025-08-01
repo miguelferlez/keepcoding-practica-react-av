@@ -80,7 +80,7 @@ h4 {
     @apply scale-110 opacity-75 transition;
   }
   .popover-menu {
-    @apply visible translate-0 scale-100 opacity-100;
+    @apply visible z-10 translate-0 scale-100 opacity-100;
     li {
       @apply transition hover:opacity-50;
     }
@@ -101,4 +101,8 @@ h4 {
 }
 .alert-info {
   @apply text-primary border-primary;
+}
+
+.ads-type {
+  @apply bg-primary rounded px-2 py-1 text-xs font-medium text-white;
 }

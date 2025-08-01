@@ -2,6 +2,7 @@ import type { AppThunk } from "./index";
 import type { Credentials } from "../pages/auth/types";
 import { login } from "../services/auth";
 import { AxiosError } from "axios";
+import type { Advert } from "../pages/adverts/types";
 
 // Auth
 
@@ -65,8 +66,61 @@ type UiResetError = {
   type: "ui/reset-error";
 };
 
-export function uiResetError(): UiResetError {
+export const uiResetError = (): UiResetError => {
   return { type: "ui/reset-error" };
+};
+
+// Adverts
+
+type AdvertsLoadedFulfilled = {
+  type: "adverts/loaded/fulfilled";
+  payload: Advert[];
+};
+
+type AdvertsLoadedPending = {
+  type: "adverts/loaded/pending";
+};
+
+type AdvertsLoadedRejected = {
+  type: "adverts/loaded/rejected";
+  payload: AxiosError<{ message: string }>;
+};
+
+const advertsLoadedFulfilled = (adverts: Advert[]): AdvertsLoadedFulfilled => ({
+  type: "adverts/loaded/fulfilled",
+  payload: adverts,
+});
+
+const advertsLoadedPending = (): AdvertsLoadedPending => ({
+  type: "adverts/loaded/pending",
+});
+
+const advertsLoadedRejected = (
+  error: AxiosError<{ message: string }>,
+): AdvertsLoadedRejected => ({
+  type: "adverts/loaded/rejected",
+  payload: error,
+});
+
+export function advertsLoaded(): AppThunk<Promise<void>> {
+  return async function (dispatch, getState, { api }) {
+    const state = getState();
+
+    if (state.adverts.loaded) {
+      return;
+    }
+
+    try {
+      advertsLoadedPending();
+      const adverts = await api.adverts.getAdverts();
+      dispatch(advertsLoadedFulfilled(adverts));
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        dispatch(advertsLoadedRejected(error));
+      }
+      throw error;
+    }
+  };
 }
 
 export type Actions =
@@ -74,4 +128,7 @@ export type Actions =
   | AuthLoginPending
   | AuthLoginRejected
   | AuthLogout
-  | UiResetError;
+  | UiResetError
+  | AdvertsLoadedFulfilled
+  | AdvertsLoadedPending
+  | AdvertsLoadedRejected;
