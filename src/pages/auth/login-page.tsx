@@ -8,12 +8,14 @@ import { AxiosError } from "axios";
 import Alert from "../../components/ui/alert";
 import InputField from "../../components/shared/input-field";
 import Button from "../../components/ui/button";
+import CheckboxField from "../../components/shared/checkbox-field";
 
 function LoginPage() {
   const [credentials, setCredentials] = useState<Credentials>({
     email: "",
     password: "",
   });
+  const [remember, setRemember] = useState<boolean>(false);
   const { email, password } = credentials;
   const location = useLocation();
   const navigate = useNavigate();
@@ -33,7 +35,7 @@ function LoginPage() {
     event.preventDefault();
 
     try {
-      await loginAction(credentials, true);
+      await loginAction(credentials, remember);
       navigate(location.state?.from ?? "/", { replace: true });
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -65,6 +67,12 @@ function LoginPage() {
               value={password}
               onChange={handleChange}
               required
+            />
+            <CheckboxField
+              label="Remember me"
+              id="remember"
+              checked={remember}
+              onChange={() => setRemember(!remember)}
             />
             <Button
               type="submit"

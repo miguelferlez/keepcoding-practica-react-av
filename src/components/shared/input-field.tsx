@@ -5,7 +5,7 @@ interface InputFieldProps extends ComponentProps<"input"> {
   label: string;
 }
 
-const InputFIeld = ({ icon, label, ...props }: InputFieldProps) => {
+const InputField = ({ icon, label, ...props }: InputFieldProps) => {
   return (
     <div className="mb-4 w-full max-w-sm min-w-[200px]">
       <div className="relative">
@@ -25,4 +25,4 @@ const InputFIeld = ({ icon, label, ...props }: InputFieldProps) => {
   );
 };
 
-export default InputFIeld;
+export default InputField;
