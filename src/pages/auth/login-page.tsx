@@ -72,7 +72,7 @@ function LoginPage() {
               label="Remember me"
               id="remember"
               checked={remember}
-              onChange={() => setRemember(!remember)}
+              onChange={() => setRemember((remember) => !remember)}
             />
             <Button
               type="submit"

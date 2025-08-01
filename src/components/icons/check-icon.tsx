@@ -8,6 +8,7 @@ const CheckIcon = (props: SVGProps<SVGSVGElement>) => (
     fill="currentColor"
     stroke="currentColor"
     strokeWidth="1"
+    {...props}
   >
     <path
       fillRule="evenodd"
