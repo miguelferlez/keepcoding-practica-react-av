@@ -27,7 +27,7 @@ class ErrorBoundary extends Component<
         {error ? (
           <section>
             <div className="min-h-screen sm:flex sm:justify-center">
-              <div className="max-w-lg p-8 text-center">
+              <div className="max-w-[640px] p-8 text-center">
                 <span className="material-symbols-outlined !text-7xl !font-bold">
                   rocket_launch
                 </span>
@@ -39,7 +39,7 @@ class ErrorBoundary extends Component<
                   </div>
                   <p>
                     There was an unexpected error while processing the request.
-                    If this error persists, don't hesitate to open an issue{" "}
+                    If this error persists, don't hesitate to open an issue in{" "}
                     <a
                       href="https://github.com/miguelferlez/keepcoding-practica-react-av/issues"
                       target="blank"

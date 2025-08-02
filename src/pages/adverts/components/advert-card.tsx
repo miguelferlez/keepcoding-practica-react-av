@@ -33,7 +33,7 @@ function AdvertCard({ advert }: AdvertCardProps) {
             </span>
           ))}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <h3 className="!m-0 text-lg font-semibold text-teal-600">
             ${advert.price.toFixed(2)}
           </h3>
