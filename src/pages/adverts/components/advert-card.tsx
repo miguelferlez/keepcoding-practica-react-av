@@ -1,4 +1,5 @@
 import type { Advert } from "../types";
+import placeholder from "../../../assets/placeholder.webp";
 
 interface AdvertCardProps {
   advert: Advert;
@@ -9,7 +10,7 @@ function AdvertCard({ advert }: AdvertCardProps) {
     <div className="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl">
       <div className="relative">
         <img
-          src={advert.photo ? advert.photo : ""}
+          src={advert.photo ? advert.photo : placeholder}
           alt="Product image"
           className="h-60 w-full object-cover transition-transform"
         />
@@ -25,7 +26,7 @@ function AdvertCard({ advert }: AdvertCardProps) {
         <span className="mb-2 flex text-lg font-bold text-gray-900">
           {advert.name}
         </span>
-        <div className="mb-2 flex flex-wrap gap-1">
+        <div className="mb-2 flex flex-wrap gap-2">
           {advert.tags.map((tag) => (
             <span className="text-primary text-sm" key={`${advert.id}-${tag}`}>
               #{tag}
