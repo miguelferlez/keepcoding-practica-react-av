@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-function NavBar({ children }: { children: ReactNode }) {
+const NavBar = ({ children }: { children: ReactNode }) => {
   return (
     <nav className="wrapper mb-8">
       <div className="divide-b">
@@ -10,6 +10,6 @@ function NavBar({ children }: { children: ReactNode }) {
       </div>
     </nav>
   );
-}
+};
 
 export default NavBar;

@@ -76,7 +76,7 @@ h4 {
 }
 
 .popover:focus-within {
-  button:first-child {
+  > button:first-child {
     @apply scale-110 opacity-75 transition;
   }
   .popover-menu {
