@@ -8,7 +8,7 @@ export type State = {
     pending: boolean;
     error: AxiosError<{ message: string }> | null;
   };
-  adverts: { loaded: boolean; data: Advert[] };
+  adverts: { loaded: boolean; data: Advert[]; tags: string[] };
 };
 
 const defaultState: State = {
@@ -17,7 +17,7 @@ const defaultState: State = {
     pending: false,
     error: null,
   },
-  adverts: { loaded: false, data: [] },
+  adverts: { loaded: false, data: [], tags: [] },
 };
 
 export function auth(
@@ -48,6 +48,12 @@ export function ui(state = defaultState.ui, action: Actions): State["ui"] {
       return { pending: false, error: null };
     case "adverts/loaded/rejected":
       return { pending: false, error: action.payload };
+    case "adverts/tags/pending":
+      return { pending: true, error: null };
+    case "adverts/tags/fulfilled":
+      return { pending: false, error: null };
+    case "adverts/tags/rejected":
+      return { pending: false, error: action.payload };
     case "ui/reset-error":
       return { ...state, error: null };
     default:
@@ -61,7 +67,9 @@ export function adverts(
 ): State["adverts"] {
   switch (action.type) {
     case "adverts/loaded/fulfilled":
-      return { loaded: true, data: action.payload };
+      return { ...state, loaded: true, data: action.payload };
+    case "adverts/tags/fulfilled":
+      return { ...state, loaded: true, tags: action.payload };
     default:
       return state;
   }

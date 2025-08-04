@@ -4,7 +4,7 @@ import { login } from "../services/auth";
 import { AxiosError } from "axios";
 import type { Advert } from "../pages/adverts/types";
 
-// Auth
+//#region Auth
 
 type AuthLoginFulfilled = {
   type: "auth/login/fulfilled";
@@ -60,7 +60,9 @@ export function authLogout(): AuthLogout {
   return { type: "auth/logout" };
 }
 
-// UI
+//#endregion
+
+//#region Ui
 
 type UiResetError = {
   type: "ui/reset-error";
@@ -70,7 +72,9 @@ export const uiResetError = (): UiResetError => {
   return { type: "ui/reset-error" };
 };
 
-// Adverts
+//#endregion
+
+//#region Adverts
 
 type AdvertsLoadedFulfilled = {
   type: "adverts/loaded/fulfilled";
@@ -111,7 +115,7 @@ export function advertsLoaded(): AppThunk<Promise<void>> {
     }
 
     try {
-      advertsLoadedPending();
+      dispatch(advertsLoadedPending());
       const adverts = await api.adverts.getAdverts();
       dispatch(advertsLoadedFulfilled(adverts));
     } catch (error) {
@@ -123,6 +127,63 @@ export function advertsLoaded(): AppThunk<Promise<void>> {
   };
 }
 
+//#endregion
+
+//#region Adverts tags
+
+type AdvertsTagsFulfilled = {
+  type: "adverts/tags/fulfilled";
+  payload: string[];
+};
+
+type AdvertsTagsPending = {
+  type: "adverts/tags/pending";
+};
+
+type AdvertsTagsRejected = {
+  type: "adverts/tags/rejected";
+  payload: AxiosError<{ message: string }>;
+};
+
+const advertsTagsFulfilled = (tags: string[]): AdvertsTagsFulfilled => ({
+  type: "adverts/tags/fulfilled",
+  payload: tags,
+});
+
+const advertsTagsPending = (): AdvertsTagsPending => ({
+  type: "adverts/tags/pending",
+});
+
+const advertsTagsRejected = (
+  error: AxiosError<{ message: string }>,
+): AdvertsTagsRejected => ({
+  type: "adverts/tags/rejected",
+  payload: error,
+});
+
+export function advertsTags(): AppThunk<Promise<void>> {
+  return async function (dispatch, getState, { api }) {
+    const state = getState();
+
+    if (state.adverts.loaded) {
+      return;
+    }
+
+    try {
+      dispatch(advertsTagsPending());
+      const tags = await api.adverts.getAdvertsTags();
+      dispatch(advertsTagsFulfilled(tags));
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        dispatch(advertsTagsRejected(error));
+      }
+      throw error;
+    }
+  };
+}
+
+//#endregion
+
 export type Actions =
   | AuthLoginFulfilled
   | AuthLoginPending
@@ -131,4 +192,7 @@ export type Actions =
   | UiResetError
   | AdvertsLoadedFulfilled
   | AdvertsLoadedPending
-  | AdvertsLoadedRejected;
+  | AdvertsLoadedRejected
+  | AdvertsTagsFulfilled
+  | AdvertsTagsPending
+  | AdvertsTagsRejected;

@@ -16,6 +16,13 @@ export const getAdverts = async () => {
   return AdvertsSchema.parse(response.data);
 };
 
+export const getAdvertsTags = async () => {
+  const url = `${ADVERTS_URL}/tags`;
+  const response = await client.get<Array<string>>(url);
+
+  return response.data;
+};
+
 export const getAdvertById = async (advertId: string) => {
   const url = `${ADVERTS_URL}/${advertId}`;
   const response = await client.get<Advert>(url);
@@ -24,13 +31,6 @@ export const getAdvertById = async (advertId: string) => {
   if (accessToken) {
     setAuthorizationHeader(accessToken);
   }
-
-  return response.data;
-};
-
-export const getAdvertTags = async () => {
-  const url = `${ADVERTS_URL}/tags`;
-  const response = await client.get<Array<string>>(url);
 
   return response.data;
 };

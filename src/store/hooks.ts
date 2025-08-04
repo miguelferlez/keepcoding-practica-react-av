@@ -1,6 +1,12 @@
 import { useAppDispatch, useAppSelector } from ".";
 import type { Credentials } from "../pages/auth/types";
-import { authLogin, authLogout, uiResetError } from "./actions";
+import {
+  advertsLoaded,
+  advertsTags,
+  authLogin,
+  authLogout,
+  uiResetError,
+} from "./actions";
 import { getIsLogged } from "./selectors";
 
 export function useAuth() {
@@ -24,5 +30,19 @@ export function useUiResetErrorAction() {
   const dispatch = useAppDispatch();
   return function () {
     return dispatch(uiResetError());
+  };
+}
+
+export function useAdvertsLoadedAction() {
+  const dispatch = useAppDispatch();
+  return function () {
+    return dispatch(advertsLoaded());
+  };
+}
+
+export function useAdvertsTagsAction() {
+  const dispatch = useAppDispatch();
+  return function () {
+    return dispatch(advertsTags());
   };
 }
