@@ -2,7 +2,6 @@ import { AxiosError } from "axios";
 import type { AppThunk } from "./index";
 import type { Advert } from "@/pages/adverts/types";
 import type { Credentials } from "@/pages/auth/types";
-import { login } from "@/services/auth";
 
 //#region Auth
 
@@ -42,12 +41,15 @@ export function authLogin(
   credentials: Credentials,
   remember: boolean,
 ): AppThunk<Promise<void>> {
-  return async function (dispatch) {
+  return async function (dispatch, _getState, { api, router }) {
     dispatch(authLoginPending());
 
     try {
-      await login(credentials, remember);
+      await api.auth.login(credentials, remember);
       dispatch(authLoginFulfilled());
+      router.navigate(router.state.location.state?.from ?? "/", {
+        replace: true,
+      });
     } catch (error) {
       if (error instanceof AxiosError) {
         dispatch(authLoginRejected(error));

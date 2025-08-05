@@ -1,16 +1,20 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
-import App from "./app";
-import { BrowserRouter } from "react-router";
-import ErrorBoundary from "./pages/error/error-boundary";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { Provider } from "react-redux";
-import storage from "./utils/storage";
+import App from "./app";
+import "./index.css";
 import { setAuthorizationHeader } from "./api/client";
+import ErrorBoundary from "./pages/error/error-boundary";
 import configureStore from "./store";
+import storage from "./utils/storage";
 
 const accessToken = storage.get("auth");
-const store = configureStore({ auth: Boolean(localStorage && accessToken) });
+const router = createBrowserRouter([{ path: "*", element: <App /> }]);
+const store = configureStore(
+  { auth: Boolean(localStorage && accessToken) },
+  router,
+);
 
 if (accessToken) {
   setAuthorizationHeader(accessToken);
@@ -19,11 +23,9 @@ if (accessToken) {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
-      <BrowserRouter>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </BrowserRouter>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ErrorBoundary>
   </StrictMode>,
 );
