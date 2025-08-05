@@ -1,7 +1,7 @@
 import { Link } from "react-router";
 import AppLogo from "../icons/app-logo";
 import Popover from "../ui/popover";
-import AuthButton from "../../pages/auth/components/auth-button";
+import AuthButton from "@/pages/auth/components/auth-button";
 
 function Header() {
   return (

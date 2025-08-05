@@ -1,8 +1,8 @@
-import type { AppThunk } from "./index";
-import type { Credentials } from "../pages/auth/types";
-import { login } from "../services/auth";
 import { AxiosError } from "axios";
-import type { Advert } from "../pages/adverts/types";
+import type { AppThunk } from "./index";
+import type { Advert } from "@/pages/adverts/types";
+import type { Credentials } from "@/pages/auth/types";
+import { login } from "@/services/auth";
 
 //#region Auth
 
@@ -44,6 +44,7 @@ export function authLogin(
 ): AppThunk<Promise<void>> {
   return async function (dispatch) {
     dispatch(authLoginPending());
+
     try {
       await login(credentials, remember);
       dispatch(authLoginFulfilled());
@@ -162,15 +163,10 @@ const advertsTagsRejected = (
 });
 
 export function advertsTags(): AppThunk<Promise<void>> {
-  return async function (dispatch, getState, { api }) {
-    const state = getState();
-
-    if (state.adverts.loaded) {
-      return;
-    }
+  return async function (dispatch, _getState, { api }) {
+    dispatch(advertsTagsPending());
 
     try {
-      dispatch(advertsTagsPending());
       const tags = await api.adverts.getAdvertsTags();
       dispatch(advertsTagsFulfilled(tags));
     } catch (error) {

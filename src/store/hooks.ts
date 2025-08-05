@@ -1,5 +1,4 @@
 import { useAppDispatch, useAppSelector } from ".";
-import type { Credentials } from "../pages/auth/types";
 import {
   advertsLoaded,
   advertsTags,
@@ -8,6 +7,7 @@ import {
   uiResetError,
 } from "./actions";
 import { getIsLogged } from "./selectors";
+import type { Credentials } from "@/pages/auth/types";
 
 export function useAuth() {
   return useAppSelector(getIsLogged);

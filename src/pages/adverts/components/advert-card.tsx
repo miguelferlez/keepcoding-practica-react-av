@@ -1,5 +1,5 @@
 import type { Advert } from "../types";
-import placeholder from "../../../assets/placeholder.webp";
+import placeholder from "@/assets/placeholder.webp";
 
 interface AdvertCardProps {
   advert: Advert;

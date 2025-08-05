@@ -1,24 +1,20 @@
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
-
+import type { Filter } from "./types";
 import AdvertCard from "./components/advert-card";
 import AdvertsFilter from "./components/adverts-filter";
 import AdvertsEmptyWarning from "./components/adverts-empty-warning";
 import AdvertsNotFoundWarning from "./components/adverts-not-found-warning";
-import NavBar from "../../components/ui/nav-bar";
-import Page from "../../components/layout/page";
-import Dropdown from "../../components/shared/dropdown";
-import Alert from "../../components/ui/alert";
-import Loader from "../../components/ui/loader";
-import NavItem from "../../components/ui/nav-item";
-import { useAppSelector } from "../../store";
-import { getAdverts, getUi } from "../../store/selectors";
-import {
-  useAdvertsLoadedAction,
-  useUiResetErrorAction,
-} from "../../store/hooks";
-import type { Filter } from "./types";
+import Page from "@/components/layout/page";
+import Dropdown from "@/components/shared/dropdown";
+import Alert from "@/components/ui/alert";
+import Loader from "@/components/ui/loader";
+import NavBar from "@/components/ui/nav-bar";
+import NavItem from "@/components/ui/nav-item";
+import { useAppSelector } from "@/store";
+import { useAdvertsLoadedAction, useUiResetErrorAction } from "@/store/hooks";
+import { getAdverts, getUi } from "@/store/selectors";
 
 function AdvertsPage() {
   const advertsLoadedAction = useAdvertsLoadedAction();

@@ -1,9 +1,9 @@
-import Button from "../../../components/ui/button";
-import InputField from "../../../components/shared/input-field";
-import TagsSelector from "./tags-selector";
-import SaleSelector from "./sale-selector";
 import { useRef, type ChangeEvent } from "react";
 import type { Filter } from "../types";
+import TagsSelector from "./tags-selector";
+import SaleSelector from "./sale-selector";
+import InputField from "@/components/shared/input-field";
+import Button from "@/components/ui/button";
 
 function AdvertsFilter({ onChange }: { onChange: (filter: Filter) => void }) {
   const filters = useRef<Filter>({});

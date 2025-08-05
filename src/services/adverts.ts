@@ -1,6 +1,6 @@
-import { client, setAuthorizationHeader } from "../api/client";
-import { AdvertsSchema, type Advert } from "../pages/adverts/types";
-import storage from "../utils/storage";
+import { client, setAuthorizationHeader } from "@/api/client";
+import { AdvertsSchema, type Advert } from "@/pages/adverts/types";
+import storage from "@/utils/storage";
 
 const ADVERTS_URL = "/api/v1/adverts";
 

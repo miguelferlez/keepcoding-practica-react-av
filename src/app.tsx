@@ -1,8 +1,8 @@
-import { Navigate, Outlet, Route, Routes } from "react-router";
 import { lazy, Suspense } from "react";
-import RequireAuth from "./pages/auth/components/require-auth";
+import { Navigate, Outlet, Route, Routes } from "react-router";
 import Layout from "./components/layout/layout";
 import Loader from "./components/ui/loader";
+import RequireAuth from "./pages/auth/components/require-auth";
 import NotFoundPage from "./pages/error/not-found-page";
 
 const LazyAdvertsPage = lazy(() => import("./pages/adverts/adverts-page"));

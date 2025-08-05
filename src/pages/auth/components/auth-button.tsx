@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import Button from "../../../components/ui/button";
-import { logout } from "../../../services/auth";
-import { useAuth, useLogoutAction } from "../../../store/hooks";
+import Button from "@/components/ui/button";
+import { logout } from "@/services/auth";
+import { useAuth, useLogoutAction } from "@/store/hooks";
 
 function AuthButton() {
   const isLogged = useAuth();

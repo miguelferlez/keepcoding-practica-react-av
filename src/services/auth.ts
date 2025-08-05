@@ -1,10 +1,10 @@
-import type { Credentials, Login } from "../pages/auth/types";
 import {
   client,
   removeAuthorizationHeader,
   setAuthorizationHeader,
-} from "../api/client";
-import storage from "../utils/storage";
+} from "@/api/client";
+import type { Credentials, Login } from "@/pages/auth/types";
+import storage from "@/utils/storage";
 
 export const login = async (
   credentials: Credentials,

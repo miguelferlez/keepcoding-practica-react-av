@@ -1,4 +1,4 @@
-import RadioField from "../../../components/shared/radio-field";
+import RadioField from "@/components/shared/radio-field";
 
 function SaleSelector({
   value,

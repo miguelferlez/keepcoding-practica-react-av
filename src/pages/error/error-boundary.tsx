@@ -1,5 +1,5 @@
 import { Component, type ReactNode, type ErrorInfo } from "react";
-import Button from "../../components/ui/button";
+import Button from "@/components/ui/button";
 
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -55,6 +55,7 @@ class ErrorBoundary extends Component<
                     label="Reload Page"
                     variant="outline"
                     onClick={() => window.location.reload()}
+                    icon="refresh"
                   />
                 </div>
                 <div className="text-destructive mt-8 overflow-scroll rounded-lg bg-gray-100 p-4 text-left text-sm">

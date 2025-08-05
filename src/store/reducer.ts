@@ -1,6 +1,6 @@
 import type { AxiosError } from "axios";
 import type { Actions } from "./actions";
-import type { Advert } from "../pages/adverts/types";
+import type { Advert } from "@/pages/adverts/types";
 
 export type State = {
   auth: boolean;
@@ -69,7 +69,7 @@ export function adverts(
     case "adverts/loaded/fulfilled":
       return { ...state, loaded: true, data: action.payload };
     case "adverts/tags/fulfilled":
-      return { ...state, loaded: true, tags: action.payload };
+      return { ...state, loaded: false, tags: action.payload };
     default:
       return state;
   }

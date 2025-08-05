@@ -1,14 +1,14 @@
-import { useState, type ChangeEvent, type FormEvent } from "react";
-import type { Credentials } from "./types";
-import { useAppSelector } from "../../store";
-import { getUi } from "../../store/selectors";
-import { useLoginAction, useUiResetErrorAction } from "../../store/hooks";
-import { useLocation, useNavigate } from "react-router";
 import { AxiosError } from "axios";
-import Alert from "../../components/ui/alert";
-import InputField from "../../components/shared/input-field";
-import Button from "../../components/ui/button";
-import CheckboxField from "../../components/shared/checkbox-field";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useLocation, useNavigate } from "react-router";
+import type { Credentials } from "./types";
+import CheckboxField from "@/components/shared/checkbox-field";
+import InputField from "@/components/shared/input-field";
+import Alert from "@/components/ui/alert";
+import Button from "@/components/ui/button";
+import { useAppSelector } from "@/store";
+import { useLoginAction, useUiResetErrorAction } from "@/store/hooks";
+import { getUi } from "@/store/selectors";
 
 function LoginPage() {
   const [credentials, setCredentials] = useState<Credentials>({

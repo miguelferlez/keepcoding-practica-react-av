@@ -1,4 +1,4 @@
-export const AdvertsNotFoundWarning = () => (
+const AdvertsNotFoundWarning = () => (
   <section className="">
     <div className="text-primary/50 mx-auto flex max-w-sm flex-col items-center px-4 text-center">
       <span className="material-symbols-outlined mb-2 !text-7xl !font-bold">

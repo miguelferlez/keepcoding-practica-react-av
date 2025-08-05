@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState, type ChangeEvent } from "react";
-
-import CheckboxField from "../../../components/shared/checkbox-field";
-import { useAppSelector } from "../../../store";
-import { useAdvertsTagsAction } from "../../../store/hooks";
-import { getAdvertsTags } from "../../../store/selectors";
+import CheckboxField from "@/components/shared/checkbox-field";
+import { useAppSelector } from "@/store";
+import { useAdvertsTagsAction } from "@/store/hooks";
+import { getAdvertsTags } from "@/store/selectors";
 
 function TagsSelector({ onChange }: { onChange: (tag: string[]) => void }) {
   const advertsTagsAction = useAdvertsTagsAction();

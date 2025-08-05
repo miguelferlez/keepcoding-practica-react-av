@@ -1,12 +1,12 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import * as reducers from "./reducer";
 import { useDispatch, useSelector } from "react-redux";
+import type { createBrowserRouter } from "react-router";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension/";
 import * as thunk from "redux-thunk";
 import type { Actions } from "./actions";
-import type { createBrowserRouter } from "react-router";
-import * as auth from "../services/auth";
-import * as adverts from "../services/adverts";
+import * as reducers from "./reducer";
+import * as adverts from "@/services/adverts";
+import * as auth from "@/services/auth";
 
 const rootReducer = combineReducers(reducers);
 type Router = ReturnType<typeof createBrowserRouter>;
