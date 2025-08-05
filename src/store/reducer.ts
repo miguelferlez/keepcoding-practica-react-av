@@ -5,7 +5,7 @@ import type { Advert } from "@/pages/adverts/types";
 export type State = {
   auth: boolean;
   ui: {
-    pending: boolean;
+    pending: { auth: boolean; adverts: boolean; tags: boolean };
     error: AxiosError<{ message: string }> | null;
   };
   adverts: { loaded: boolean; data: Advert[]; tags: string[] };
@@ -14,7 +14,7 @@ export type State = {
 const defaultState: State = {
   auth: false,
   ui: {
-    pending: false,
+    pending: { auth: false, adverts: false, tags: false },
     error: null,
   },
   adverts: { loaded: false, data: [], tags: [] },
@@ -37,23 +37,32 @@ export function auth(
 export function ui(state = defaultState.ui, action: Actions): State["ui"] {
   switch (action.type) {
     case "auth/login/pending":
-      return { pending: true, error: null };
+      return { pending: { ...state.pending, auth: true }, error: null };
     case "auth/login/fulfilled":
-      return { pending: false, error: null };
+      return { pending: { ...state.pending, auth: false }, error: null };
     case "auth/login/rejected":
-      return { pending: false, error: action.payload };
+      return {
+        pending: { ...state.pending, auth: false },
+        error: action.payload,
+      };
     case "adverts/loaded/pending":
-      return { pending: true, error: null };
+      return { pending: { ...state.pending, adverts: true }, error: null };
     case "adverts/loaded/fulfilled":
-      return { pending: false, error: null };
+      return { pending: { ...state.pending, adverts: false }, error: null };
     case "adverts/loaded/rejected":
-      return { pending: false, error: action.payload };
+      return {
+        pending: { ...state.pending, adverts: false },
+        error: action.payload,
+      };
     case "adverts/tags/pending":
-      return { pending: true, error: null };
+      return { pending: { ...state.pending, tags: true }, error: null };
     case "adverts/tags/fulfilled":
-      return { pending: false, error: null };
+      return { pending: { ...state.pending, tags: false }, error: null };
     case "adverts/tags/rejected":
-      return { pending: false, error: action.payload };
+      return {
+        pending: { ...state.pending, tags: false },
+        error: action.payload,
+      };
     case "ui/reset-error":
       return { ...state, error: null };
     default:

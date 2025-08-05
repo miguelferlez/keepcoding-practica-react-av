@@ -120,7 +120,9 @@ export function advertsLoaded(): AppThunk<Promise<void>> {
     try {
       dispatch(advertsLoadedPending());
       const adverts = await api.adverts.getAdverts();
-      dispatch(advertsLoadedFulfilled(adverts));
+      setTimeout(() => {
+        dispatch(advertsLoadedFulfilled(adverts));
+      }, 1000);
     } catch (error) {
       if (error instanceof AxiosError) {
         dispatch(advertsLoadedRejected(error));

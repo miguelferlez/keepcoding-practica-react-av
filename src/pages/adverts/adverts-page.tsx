@@ -82,7 +82,7 @@ function AdvertsPage() {
         )}
       </NavBar>
       <Page title="Latest Adverts">
-        {pending ? (
+        {pending.adverts || pending.tags ? (
           <Loader />
         ) : adverts.length ? (
           <ul
