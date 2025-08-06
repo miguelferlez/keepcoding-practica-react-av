@@ -21,8 +21,8 @@ function LoginPage() {
   const navigate = useNavigate();
   const loginAction = useLoginAction();
   const uiResetErrorAction = useUiResetErrorAction();
-  const { pending: isSubmitting, error } = useAppSelector(getUi);
-  const isDisabled = !email || !password || isSubmitting;
+  const { pending, error } = useAppSelector(getUi);
+  const isDisabled = !email || !password || pending.auth;
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setCredentials((credentials) => ({
