@@ -1,5 +1,6 @@
 import { useAppDispatch, useAppSelector } from ".";
 import {
+  advertsDetail,
   advertsLoaded,
   advertsTags,
   authLogin,
@@ -44,5 +45,12 @@ export function useAdvertsTagsAction() {
   const dispatch = useAppDispatch();
   return function () {
     return dispatch(advertsTags());
+  };
+}
+
+export function useAdvertsDetailAction() {
+  const dispatch = useAppDispatch();
+  return function (advertId: string) {
+    return dispatch(advertsDetail(advertId));
   };
 }

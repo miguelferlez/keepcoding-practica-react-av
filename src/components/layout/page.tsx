@@ -7,7 +7,7 @@ interface PageProps {
 
 function Page({ title, children }: PageProps) {
   return (
-    <div className="wrapper">
+    <div className="wrapper only:mt-8">
       <h2>{title}</h2>
       {children}
     </div>

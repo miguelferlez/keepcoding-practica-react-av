@@ -8,16 +8,13 @@ import type { Credentials } from "@/pages/auth/types";
 type AuthLoginFulfilled = {
   type: "auth/login/fulfilled";
 };
-
 type AuthLoginPending = {
   type: "auth/login/pending";
 };
-
 type AuthLoginRejected = {
   type: "auth/login/rejected";
   payload: AxiosError<{ message: string }>;
 };
-
 type AuthLogout = {
   type: "auth/logout";
 };
@@ -25,11 +22,9 @@ type AuthLogout = {
 const authLoginFulfilled = (): AuthLoginFulfilled => ({
   type: "auth/login/fulfilled",
 });
-
 const authLoginPending = (): AuthLoginPending => ({
   type: "auth/login/pending",
 });
-
 const authLoginRejected = (
   error: AxiosError<{ message: string }>,
 ): AuthLoginRejected => ({
@@ -83,11 +78,9 @@ type AdvertsLoadedFulfilled = {
   type: "adverts/loaded/fulfilled";
   payload: Advert[];
 };
-
 type AdvertsLoadedPending = {
   type: "adverts/loaded/pending";
 };
-
 type AdvertsLoadedRejected = {
   type: "adverts/loaded/rejected";
   payload: AxiosError<{ message: string }>;
@@ -97,11 +90,9 @@ const advertsLoadedFulfilled = (adverts: Advert[]): AdvertsLoadedFulfilled => ({
   type: "adverts/loaded/fulfilled",
   payload: adverts,
 });
-
 const advertsLoadedPending = (): AdvertsLoadedPending => ({
   type: "adverts/loaded/pending",
 });
-
 const advertsLoadedRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsLoadedRejected => ({
@@ -184,6 +175,52 @@ export function advertsTags(): AppThunk<Promise<void>> {
 
 //#endregion
 
+//#region Adverts detail
+
+type AdvertsDetailFulfilled = {
+  type: "adverts/detail/fulfilled";
+  payload: Advert;
+};
+type AdvertsDetailPending = {
+  type: "adverts/detail/pending";
+};
+type AdvertsDetailRejected = {
+  type: "adverts/detail/rejected";
+  payload: AxiosError<{ message: string }>;
+};
+
+const advertsDetailFulfilled = (advert: Advert): AdvertsDetailFulfilled => ({
+  type: "adverts/detail/fulfilled",
+  payload: advert,
+});
+const advertsDetailPending = (): AdvertsDetailPending => ({
+  type: "adverts/detail/pending",
+});
+const advertsDetailRejected = (
+  error: AxiosError<{ message: string }>,
+): AdvertsDetailRejected => ({
+  type: "adverts/detail/rejected",
+  payload: error,
+});
+
+export function advertsDetail(advertId: string): AppThunk<Promise<void>> {
+  return async function (dispatch, _getState, { api }) {
+    dispatch(advertsDetailPending());
+
+    try {
+      const advert = await api.adverts.getAdvertById(advertId);
+      dispatch(advertsDetailFulfilled(advert));
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        dispatch(advertsDetailRejected(error));
+      }
+      throw error;
+    }
+  };
+}
+
+//#endregion
+
 export type Actions =
   | AuthLoginFulfilled
   | AuthLoginPending
@@ -195,4 +232,7 @@ export type Actions =
   | AdvertsLoadedRejected
   | AdvertsTagsFulfilled
   | AdvertsTagsPending
-  | AdvertsTagsRejected;
+  | AdvertsTagsRejected
+  | AdvertsDetailFulfilled
+  | AdvertsDetailPending
+  | AdvertsDetailRejected;

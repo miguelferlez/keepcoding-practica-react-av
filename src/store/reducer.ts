@@ -63,6 +63,15 @@ export function ui(state = defaultState.ui, action: Actions): State["ui"] {
         pending: { ...state.pending, tags: false },
         error: action.payload,
       };
+    case "adverts/detail/pending":
+      return { pending: { ...state.pending, adverts: true }, error: null };
+    case "adverts/detail/fulfilled":
+      return { pending: { ...state.pending, adverts: false }, error: null };
+    case "adverts/detail/rejected":
+      return {
+        pending: { ...state.pending, adverts: false },
+        error: action.payload,
+      };
     case "ui/reset-error":
       return { ...state, error: null };
     default:
@@ -79,6 +88,8 @@ export function adverts(
       return { ...state, loaded: true, data: action.payload };
     case "adverts/tags/fulfilled":
       return { ...state, loaded: false, tags: action.payload };
+    case "adverts/detail/fulfilled":
+      return { ...state, loaded: false, data: [action.payload] };
     default:
       return state;
   }
