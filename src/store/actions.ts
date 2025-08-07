@@ -72,7 +72,7 @@ export const uiResetError = (): UiResetError => {
 
 //#endregion
 
-//#region Adverts
+//#region Adverts loaded
 
 type AdvertsLoadedFulfilled = {
   type: "adverts/loaded/fulfilled";
@@ -221,6 +221,52 @@ export function advertsDetail(advertId: string): AppThunk<Promise<void>> {
 
 //#endregion
 
+//#region Adverts deleted
+
+type AdvertsDeletedFulfilled = {
+  type: "adverts/deleted/fulfilled";
+};
+type AdvertsDeletedPending = {
+  type: "adverts/deleted/pending";
+};
+type AdvertsDeletedRejected = {
+  type: "adverts/deleted/rejected";
+  payload: AxiosError<{ message: string }>;
+};
+
+const advertsDeletedFulfilled = (): AdvertsDeletedFulfilled => ({
+  type: "adverts/deleted/fulfilled",
+});
+const advertsDeletedPending = (): AdvertsDeletedPending => ({
+  type: "adverts/deleted/pending",
+});
+const advertsDeletedRejected = (
+  error: AxiosError<{ message: string }>,
+): AdvertsDeletedRejected => ({
+  type: "adverts/deleted/rejected",
+  payload: error,
+});
+
+export function advertsDeleted(advertId: string): AppThunk<Promise<void>> {
+  return async function (dispatch, _getState, { api, router }) {
+    dispatch(advertsDeletedPending());
+
+    try {
+      await api.adverts.deleteAdvert(advertId);
+      dispatch(advertsDeletedFulfilled());
+      router.navigate("/");
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        console.log(error);
+        dispatch(advertsDeletedRejected(error));
+      }
+      throw error;
+    }
+  };
+}
+
+//#endregion
+
 export type Actions =
   | AuthLoginFulfilled
   | AuthLoginPending
@@ -235,4 +281,7 @@ export type Actions =
   | AdvertsTagsRejected
   | AdvertsDetailFulfilled
   | AdvertsDetailPending
-  | AdvertsDetailRejected;
+  | AdvertsDetailRejected
+  | AdvertsDeletedFulfilled
+  | AdvertsDeletedPending
+  | AdvertsDeletedRejected;

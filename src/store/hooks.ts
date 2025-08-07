@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from ".";
 import {
+  advertsDeleted,
   advertsDetail,
   advertsLoaded,
   advertsTags,
@@ -12,6 +14,17 @@ import type { Credentials } from "@/pages/auth/types";
 
 export function useAuth() {
   return useAppSelector(getIsLogged);
+}
+
+export function useModal() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  function showModal() {
+    setIsModalOpen(true);
+  }
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+  return { isModalOpen, showModal, closeModal };
 }
 
 export function useLoginAction() {
@@ -52,5 +65,12 @@ export function useAdvertsDetailAction() {
   const dispatch = useAppDispatch();
   return function (advertId: string) {
     return dispatch(advertsDetail(advertId));
+  };
+}
+
+export function useAdvertsDeletedAction() {
+  const dispatch = useAppDispatch();
+  return function (advertId: string) {
+    return dispatch(advertsDeleted(advertId));
   };
 }

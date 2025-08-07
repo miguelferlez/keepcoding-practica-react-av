@@ -3,7 +3,7 @@ import type { ComponentProps, ReactNode } from "react";
 
 interface ButtonProps extends ComponentProps<"button"> {
   icon?: ReactNode | string;
-  label: string;
+  label?: string;
   variant: "primary" | "outline" | "destructive";
 }
 

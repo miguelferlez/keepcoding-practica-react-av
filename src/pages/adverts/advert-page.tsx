@@ -5,14 +5,26 @@ import placeholder from "@/assets/placeholder.webp";
 import Page from "@/components/layout/page";
 import Button from "@/components/ui/button";
 import { useAppSelector } from "@/store";
-import { useAdvertsDetailAction } from "@/store/hooks";
+import {
+  useAdvertsDeletedAction,
+  useAdvertsDetailAction,
+  useModal,
+} from "@/store/hooks";
 import { getAdvertById } from "@/store/selectors";
+import Modal from "@/components/shared/modal";
 
 function AdvertPage() {
   const params = useParams();
   const advertsDetailAction = useAdvertsDetailAction();
+  const advertsDeletedAction = useAdvertsDeletedAction();
   const advert = useAppSelector(getAdvertById(params.advertId));
   const didFetch = useRef(false);
+  const { isModalOpen, showModal, closeModal } = useModal();
+
+  async function handleDelete() {
+    await advertsDeletedAction(advert!.id);
+    closeModal();
+  }
 
   useEffect(() => {
     if (!params.advertId) {
@@ -29,20 +41,19 @@ function AdvertPage() {
     <Page title="Advert Details">
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="md:flex-1">
-          <div className="relative mb-4 h-[370px] overflow-hidden rounded-lg bg-[#384152]">
-            {/* <img
-              className="absolute inset-0 h-full w-full scale-120 object-cover opacity-100 blur-lg"
-              src={advert?.photo ?? placeholder}
-              alt="Product Image"
-            /> */}
+          <div className="mb-4 h-[370px] overflow-hidden rounded-lg bg-[#384152]">
             <img
-              className="relative h-full w-full object-cover"
+              className="h-full w-full object-cover"
               src={advert?.photo ?? placeholder}
               alt="Product Image"
             />
           </div>
-          <div className="flex flex-col">
-            <Button label="Delete this advert" variant="destructive" />
+          <div className="flex items-center justify-end">
+            <Button
+              label="Delete this advert"
+              variant="destructive"
+              onClick={showModal}
+            />
           </div>
         </div>
         <div className="rounded-lg border border-neutral-500/15 p-4 md:flex-1">
@@ -75,6 +86,17 @@ function AdvertPage() {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <Modal
+          title="Delete advert?"
+          text="Are you sure you want to delete this advert? This action can't be undone and you'll be redirected to main page."
+          buttonLabel="Yes, confirm deletion"
+          type="warning"
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          onConfirm={handleDelete}
+        />
+      )}
     </Page>
   );
 }
