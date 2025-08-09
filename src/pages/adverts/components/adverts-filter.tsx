@@ -49,6 +49,7 @@ function AdvertsFilter({ onChange }: { onChange: (filter: Filter) => void }) {
         type="search"
         id="name"
         name="name"
+        maxLength={import.meta.env.VITE_ADVERT_MAX_CHARS}
         onChange={handleNameChange}
       />
       <InputField

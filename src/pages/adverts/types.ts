@@ -12,6 +12,13 @@ export const AdvertSchema = z.object({
 
 export type Advert = z.infer<typeof AdvertSchema>;
 
+export type CreateAdvertDto = Pick<
+  Advert,
+  "name" | "price" | "tags" | "sale"
+> & {
+  photo?: File;
+};
+
 export const AdvertsSchema = z.array(AdvertSchema);
 
 export const FilterSchema = z.object({

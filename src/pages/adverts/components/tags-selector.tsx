@@ -4,7 +4,12 @@ import { useAppSelector } from "@/store";
 import { useAdvertsTagsAction } from "@/store/hooks";
 import { getAdvertsTags } from "@/store/selectors";
 
-function TagsSelector({ onChange }: { onChange: (tag: string[]) => void }) {
+interface TagsSelectorProps {
+  onChange: (tag: string[]) => void;
+  help?: string;
+}
+
+function TagsSelector({ onChange, help }: TagsSelectorProps) {
   const advertsTagsAction = useAdvertsTagsAction();
   const tags = useAppSelector(getAdvertsTags);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
@@ -29,7 +34,7 @@ function TagsSelector({ onChange }: { onChange: (tag: string[]) => void }) {
   return (
     <div>
       <p className="mb-2 font-medium">Tags:</p>
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-x-3 gap-y-0.5">
         {tags.map((tag) => (
           <CheckboxField
             label={tag}
@@ -39,9 +44,15 @@ function TagsSelector({ onChange }: { onChange: (tag: string[]) => void }) {
             id={tag}
             checked={selectedTags.includes(tag)}
             onChange={handleChange}
+            aria-describedby="tags-help"
           />
         ))}
       </div>
+      {help && (
+        <p className="mb-4 text-xs" aria-hidden="true" id="tags-help">
+          {help}
+        </p>
+      )}
     </div>
   );
 }

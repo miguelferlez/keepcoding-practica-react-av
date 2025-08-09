@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from ".";
 import {
+  advertsCreated,
   advertsDeleted,
   advertsDetail,
   advertsLoaded,
@@ -11,6 +12,7 @@ import {
 } from "./actions";
 import { getIsLogged } from "./selectors";
 import type { Credentials } from "@/pages/auth/types";
+import type { Advert, CreateAdvertDto } from "@/pages/adverts/types";
 
 export function useAuth() {
   return useAppSelector(getIsLogged);
@@ -72,5 +74,12 @@ export function useAdvertsDeletedAction() {
   const dispatch = useAppDispatch();
   return function (advertId: string) {
     return dispatch(advertsDeleted(advertId));
+  };
+}
+
+export function useAdvertsCreatedAction() {
+  const dispatch = useAppDispatch();
+  return function (advert: CreateAdvertDto) {
+    return dispatch(advertsCreated(advert));
   };
 }

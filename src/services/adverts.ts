@@ -1,5 +1,9 @@
 import { client, setAuthorizationHeader } from "@/api/client";
-import { AdvertsSchema, type Advert } from "@/pages/adverts/types";
+import {
+  AdvertsSchema,
+  type Advert,
+  type CreateAdvertDto,
+} from "@/pages/adverts/types";
 import storage from "@/utils/storage";
 
 const ADVERTS_URL = "/api/v1/adverts";
@@ -35,29 +39,13 @@ export const getAdvertById = async (advertId: string) => {
   return response.data;
 };
 
-export const createAdvert = async (advert: {
-  name: string;
-  sale: boolean;
-  price: number;
-  tags: string[];
-  photo: File | undefined;
-}) => {
+export const createAdvert = async (advertDto: CreateAdvertDto) => {
   const url = ADVERTS_URL;
-  const response = await client.post<Advert>(
-    url,
-    {
-      name: advert.name,
-      sale: advert.sale,
-      price: advert.price,
-      tags: advert.tags,
-      photo: advert.photo,
+  const response = await client.post<Advert>(url, advertDto, {
+    headers: {
+      "Content-Type": "multipart/form-data",
     },
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    },
-  );
+  });
 
   return response.data;
 };

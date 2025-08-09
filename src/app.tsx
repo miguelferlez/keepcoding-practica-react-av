@@ -8,6 +8,7 @@ import NotFoundPage from "./pages/error/not-found-page";
 const LazyLoginPage = lazy(() => import("./pages/auth/login-page"));
 const LazyAdvertsPage = lazy(() => import("./pages/adverts/adverts-page"));
 const LazyAdvertPage = lazy(() => import("./pages/adverts/advert-page"));
+const LazyNewAdvertPage = lazy(() => import("./pages/adverts/new-advert-page"));
 
 function App() {
   return (
@@ -44,6 +45,14 @@ function App() {
           element={
             <Suspense fallback={<Loader />}>
               <LazyAdvertPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="new"
+          element={
+            <Suspense fallback={<Loader />}>
+              <LazyNewAdvertPage />
             </Suspense>
           }
         />

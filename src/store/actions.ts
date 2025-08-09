@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import type { AppThunk } from "./index";
-import type { Advert } from "@/pages/adverts/types";
+import type { Advert, CreateAdvertDto } from "@/pages/adverts/types";
 import type { Credentials } from "@/pages/auth/types";
 
 //#region Auth
@@ -267,6 +267,53 @@ export function advertsDeleted(advertId: string): AppThunk<Promise<void>> {
 
 //#endregion
 
+//#region Adverts created
+
+type AdvertsCreatedFulFilled = {
+  type: "adverts/created/fulfilled";
+  payload: Advert;
+};
+type AdvertsCreatedPending = {
+  type: "adverts/created/pending";
+};
+type AdvertsCreatedRejected = {
+  type: "adverts/created/rejected";
+  payload: AxiosError<{ message: string }>;
+};
+
+const advertsCreatedFulfilled = (advert: Advert): AdvertsCreatedFulFilled => ({
+  type: "adverts/created/fulfilled",
+  payload: advert,
+});
+const advertsCreatedPending = (): AdvertsCreatedPending => ({
+  type: "adverts/created/pending",
+});
+const advertsCreatedRejected = (
+  error: AxiosError<{ message: string }>,
+): AdvertsCreatedRejected => ({
+  type: "adverts/created/rejected",
+  payload: error,
+});
+
+export function advertsCreated(
+  advert: CreateAdvertDto,
+): AppThunk<Promise<void>> {
+  return async function (dispatch, _getState, { api, router }) {
+    try {
+      dispatch(advertsCreatedPending());
+      const createdAdvert = await api.adverts.createAdvert(advert);
+      dispatch(advertsCreatedFulfilled(createdAdvert));
+      router.navigate(`/adverts/${createdAdvert.id}`);
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        dispatch(advertsCreatedRejected(error));
+      }
+    }
+  };
+}
+
+//#region
+
 export type Actions =
   | AuthLoginFulfilled
   | AuthLoginPending
@@ -284,4 +331,7 @@ export type Actions =
   | AdvertsDetailRejected
   | AdvertsDeletedFulfilled
   | AdvertsDeletedPending
-  | AdvertsDeletedRejected;
+  | AdvertsDeletedRejected
+  | AdvertsCreatedFulFilled
+  | AdvertsCreatedPending
+  | AdvertsCreatedRejected;
