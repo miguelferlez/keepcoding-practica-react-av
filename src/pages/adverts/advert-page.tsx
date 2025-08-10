@@ -3,15 +3,18 @@ import { useEffect, useRef } from "react";
 import { useParams } from "react-router";
 import placeholder from "@/assets/placeholder.webp";
 import Page from "@/components/layout/page";
+import Modal from "@/components/shared/modal";
+import Alert from "@/components/ui/alert";
 import Button from "@/components/ui/button";
 import { useAppSelector } from "@/store";
 import {
   useAdvertsDeletedAction,
   useAdvertsDetailAction,
   useModal,
+  useUiResetErrorAction,
 } from "@/store/hooks";
-import { getAdvertById } from "@/store/selectors";
-import Modal from "@/components/shared/modal";
+import { getAdvertById, getUi } from "@/store/selectors";
+import Loader from "@/components/ui/loader";
 
 function AdvertPage() {
   const params = useParams();
@@ -20,6 +23,8 @@ function AdvertPage() {
   const advert = useAppSelector(getAdvertById(params.advertId));
   const didFetch = useRef(false);
   const { isModalOpen, showModal, closeModal } = useModal();
+  const uiResetErrorAction = useUiResetErrorAction();
+  const { pending, error } = useAppSelector(getUi);
 
   async function handleDelete() {
     await advertsDeletedAction(advert!.id);
@@ -39,6 +44,7 @@ function AdvertPage() {
 
   return (
     <Page title="Advert Details">
+      {pending.adverts && <Loader />}
       <div className="flex flex-col gap-4 md:flex-row">
         <div className="md:flex-1">
           <div className="mb-4 h-[370px] overflow-hidden rounded-lg bg-[#384152]">
@@ -97,6 +103,15 @@ function AdvertPage() {
           onConfirm={handleDelete}
         />
       )}
+      <div className="fixed top-11.5 left-1/2 z-50 -translate-x-1/2">
+        {error && (
+          <Alert
+            text={error.response?.data?.message || error.message}
+            variant="error"
+            onClick={() => uiResetErrorAction()}
+          />
+        )}
+      </div>
     </Page>
   );
 }
