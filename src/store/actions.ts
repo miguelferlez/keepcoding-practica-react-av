@@ -31,6 +31,9 @@ const authLoginRejected = (
   type: "auth/login/rejected",
   payload: error,
 });
+const authLogoutFulfilled = (): AuthLogout => ({
+  type: "auth/logout",
+});
 
 export function authLogin(
   credentials: Credentials,
@@ -54,8 +57,11 @@ export function authLogin(
   };
 }
 
-export function authLogout(): AuthLogout {
-  return { type: "auth/logout" };
+export function authLogout(): AppThunk<Promise<void>> {
+  return async function (dispatch, _getState, { api }) {
+    await api.auth.logout();
+    dispatch(authLogoutFulfilled());
+  };
 }
 
 //#endregion

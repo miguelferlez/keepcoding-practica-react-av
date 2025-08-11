@@ -12,7 +12,7 @@ import {
 } from "./actions";
 import { getIsLogged } from "./selectors";
 import type { Credentials } from "@/pages/auth/types";
-import type { Advert, CreateAdvertDto } from "@/pages/adverts/types";
+import type { CreateAdvertDto } from "@/pages/adverts/types";
 
 export function useAuth() {
   return useAppSelector(getIsLogged);
