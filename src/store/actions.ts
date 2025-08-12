@@ -19,19 +19,19 @@ type AuthLogout = {
   type: "auth/logout";
 };
 
-const authLoginFulfilled = (): AuthLoginFulfilled => ({
+export const authLoginFulfilled = (): AuthLoginFulfilled => ({
   type: "auth/login/fulfilled",
 });
-const authLoginPending = (): AuthLoginPending => ({
+export const authLoginPending = (): AuthLoginPending => ({
   type: "auth/login/pending",
 });
-const authLoginRejected = (
+export const authLoginRejected = (
   error: AxiosError<{ message: string }>,
 ): AuthLoginRejected => ({
   type: "auth/login/rejected",
   payload: error,
 });
-const authLogoutFulfilled = (): AuthLogout => ({
+export const authLogoutFulfilled = (): AuthLogout => ({
   type: "auth/logout",
 });
 
@@ -92,14 +92,16 @@ type AdvertsLoadedRejected = {
   payload: AxiosError<{ message: string }>;
 };
 
-const advertsLoadedFulfilled = (adverts: Advert[]): AdvertsLoadedFulfilled => ({
+export const advertsLoadedFulfilled = (
+  adverts: Advert[],
+): AdvertsLoadedFulfilled => ({
   type: "adverts/loaded/fulfilled",
   payload: adverts,
 });
-const advertsLoadedPending = (): AdvertsLoadedPending => ({
+export const advertsLoadedPending = (): AdvertsLoadedPending => ({
   type: "adverts/loaded/pending",
 });
-const advertsLoadedRejected = (
+export const advertsLoadedRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsLoadedRejected => ({
   type: "adverts/loaded/rejected",
@@ -147,16 +149,16 @@ type AdvertsTagsRejected = {
   payload: AxiosError<{ message: string }>;
 };
 
-const advertsTagsFulfilled = (tags: string[]): AdvertsTagsFulfilled => ({
+export const advertsTagsFulfilled = (tags: string[]): AdvertsTagsFulfilled => ({
   type: "adverts/tags/fulfilled",
   payload: tags,
 });
 
-const advertsTagsPending = (): AdvertsTagsPending => ({
+export const advertsTagsPending = (): AdvertsTagsPending => ({
   type: "adverts/tags/pending",
 });
 
-const advertsTagsRejected = (
+export const advertsTagsRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsTagsRejected => ({
   type: "adverts/tags/rejected",
@@ -195,14 +197,16 @@ type AdvertsDetailRejected = {
   payload: AxiosError<{ message: string }>;
 };
 
-const advertsDetailFulfilled = (advert: Advert): AdvertsDetailFulfilled => ({
+export const advertsDetailFulfilled = (
+  advert: Advert,
+): AdvertsDetailFulfilled => ({
   type: "adverts/detail/fulfilled",
   payload: advert,
 });
-const advertsDetailPending = (): AdvertsDetailPending => ({
+export const advertsDetailPending = (): AdvertsDetailPending => ({
   type: "adverts/detail/pending",
 });
-const advertsDetailRejected = (
+export const advertsDetailRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsDetailRejected => ({
   type: "adverts/detail/rejected",
@@ -210,11 +214,15 @@ const advertsDetailRejected = (
 });
 
 export function advertsDetail(advertId: string): AppThunk<Promise<void>> {
-  return async function (dispatch, _getState, { api }) {
+  return async function (dispatch, _getState, { api, router }) {
     dispatch(advertsDetailPending());
 
     try {
       const advert = await api.adverts.getAdvertById(advertId);
+      if (!advert) {
+        router.navigate("/not-found", { replace: true });
+        return;
+      }
       dispatch(advertsDetailFulfilled(advert));
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -240,13 +248,13 @@ type AdvertsDeletedRejected = {
   payload: AxiosError<{ message: string }>;
 };
 
-const advertsDeletedFulfilled = (): AdvertsDeletedFulfilled => ({
+export const advertsDeletedFulfilled = (): AdvertsDeletedFulfilled => ({
   type: "adverts/deleted/fulfilled",
 });
-const advertsDeletedPending = (): AdvertsDeletedPending => ({
+export const advertsDeletedPending = (): AdvertsDeletedPending => ({
   type: "adverts/deleted/pending",
 });
-const advertsDeletedRejected = (
+export const advertsDeletedRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsDeletedRejected => ({
   type: "adverts/deleted/rejected",
@@ -287,14 +295,16 @@ type AdvertsCreatedRejected = {
   payload: AxiosError<{ message: string }>;
 };
 
-const advertsCreatedFulfilled = (advert: Advert): AdvertsCreatedFulFilled => ({
+export const advertsCreatedFulfilled = (
+  advert: Advert,
+): AdvertsCreatedFulFilled => ({
   type: "adverts/created/fulfilled",
   payload: advert,
 });
-const advertsCreatedPending = (): AdvertsCreatedPending => ({
+export const advertsCreatedPending = (): AdvertsCreatedPending => ({
   type: "adverts/created/pending",
 });
-const advertsCreatedRejected = (
+export const advertsCreatedRejected = (
   error: AxiosError<{ message: string }>,
 ): AdvertsCreatedRejected => ({
   type: "adverts/created/rejected",
@@ -318,7 +328,7 @@ export function advertsCreated(
   };
 }
 
-//#region
+//#endregion
 
 export type Actions =
   | AuthLoginFulfilled
