@@ -1,6 +1,5 @@
 import { AxiosError } from "axios";
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { useLocation, useNavigate } from "react-router";
 import type { Credentials } from "./types";
 import CheckboxField from "@/components/shared/checkbox-field";
 import InputField from "@/components/shared/input-field";
@@ -17,8 +16,6 @@ function LoginPage() {
   });
   const [remember, setRemember] = useState<boolean>(false);
   const { email, password } = credentials;
-  const location = useLocation();
-  const navigate = useNavigate();
   const loginAction = useLoginAction();
   const uiResetErrorAction = useUiResetErrorAction();
   const { pending, error } = useAppSelector(getUi);
@@ -36,7 +33,6 @@ function LoginPage() {
 
     try {
       await loginAction(credentials, remember);
-      navigate(location.state?.from ?? "/", { replace: true });
     } catch (error) {
       if (error instanceof AxiosError) {
         console.log(error);

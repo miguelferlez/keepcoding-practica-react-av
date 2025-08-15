@@ -12,7 +12,7 @@ const InputField = ({ icon, label, help, ...props }: InputFieldProps) => {
       <div className="relative">
         <input
           {...props}
-          placeholder=""
+          placeholder={label}
           className="peer ease text-primary focus:border-primary w-full rounded-md border border-neutral-500/15 bg-transparent px-4 py-3 transition placeholder:text-transparent focus:shadow-sm focus:outline-none"
           autoComplete="off"
         />
