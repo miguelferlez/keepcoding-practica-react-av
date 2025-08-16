@@ -67,7 +67,12 @@ function AdvertsPage() {
           </Dropdown>
         </li>
         <li>
-          <NavItem to="/adverts/new" label="New Advert" icon="add" />
+          <NavItem
+            to="/adverts/new"
+            label="New Advert"
+            icon="add"
+            aria-label="nav-filters"
+          />
         </li>
 
         {import.meta.env.DEV && (

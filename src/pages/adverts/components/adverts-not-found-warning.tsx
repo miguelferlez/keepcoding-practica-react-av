@@ -1,6 +1,9 @@
 const AdvertsNotFoundWarning = () => (
   <section className="">
-    <div className="text-primary/50 mx-auto flex max-w-sm flex-col items-center px-4 text-center">
+    <div
+      className="text-primary/50 mx-auto flex max-w-sm flex-col items-center px-4 text-center"
+      data-testid="not-found"
+    >
       <span className="material-symbols-outlined mb-2 !text-7xl !font-bold">
         robot_2
       </span>
