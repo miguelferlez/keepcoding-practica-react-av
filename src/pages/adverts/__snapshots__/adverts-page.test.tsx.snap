@@ -1022,6 +1022,498 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
 </div>
 `;
 
+exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
+<div>
+  <nav
+    class="wrapper mb-8"
+  >
+    <div
+      class="divide-b"
+    >
+      <ul
+        class="flex flex-col gap-4 py-4 sm:flex-row sm:items-center"
+      >
+        <li>
+          <div
+            class="popover flex items-center"
+          >
+            <button
+              class="nav-item"
+            >
+              <span
+                class="material-symbols-outlined"
+              >
+                filter_list
+              </span>
+              <span
+                class="-mb-0.75"
+              >
+                Filters
+              </span>
+            </button>
+            <div
+              class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
+            >
+              <div
+                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                role="menu"
+                tabindex="-1"
+              >
+                <form>
+                  <div
+                    class="mb-4 w-full max-w-sm min-w-[200px]"
+                  >
+                    <div
+                      class="relative"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="peer ease text-primary focus:border-primary w-full rounded-md border border-neutral-500/15 bg-transparent px-4 py-3 transition placeholder:text-transparent focus:shadow-sm focus:outline-none"
+                        id="name"
+                        maxlength="80"
+                        name="name"
+                        placeholder="Name"
+                        type="search"
+                      />
+                      <label
+                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        for="name"
+                      >
+                        Name
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="mb-4 w-full max-w-sm min-w-[200px]"
+                  >
+                    <div
+                      class="relative"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="peer ease text-primary focus:border-primary w-full rounded-md border border-neutral-500/15 bg-transparent px-4 py-3 transition placeholder:text-transparent focus:shadow-sm focus:outline-none"
+                        id="min-price"
+                        max="99999.99"
+                        min="1.00"
+                        name="price"
+                        placeholder="Minimum price"
+                        type="number"
+                      />
+                      <label
+                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        for="min-price"
+                      >
+                        Minimum price
+                      </label>
+                    </div>
+                  </div>
+                  <div
+                    class="mb-4 w-full max-w-sm min-w-[200px]"
+                  >
+                    <div
+                      class="relative"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="peer ease text-primary focus:border-primary w-full rounded-md border border-neutral-500/15 bg-transparent px-4 py-3 transition placeholder:text-transparent focus:shadow-sm focus:outline-none"
+                        id="max-price"
+                        max="99999.99"
+                        min="1.00"
+                        name="price"
+                        placeholder="Maximum price"
+                        type="number"
+                      />
+                      <label
+                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        for="max-price"
+                      >
+                        Maximum price
+                      </label>
+                    </div>
+                  </div>
+                  <div>
+                    <p
+                      class="mb-2 font-medium"
+                    >
+                      Tags:
+                    </p>
+                    <div
+                      class="flex flex-wrap gap-x-3 gap-y-0.5"
+                    >
+                      <div
+                        class="mb-4 flex items-center"
+                      >
+                        <div
+                          class="peer relative flex cursor-pointer items-center"
+                        >
+                          <input
+                            aria-describedby="tags-help"
+                            class="peer checked:border-primary checked:bg-primary h-5 w-5 cursor-pointer appearance-none rounded border border-neutral-500/15 transition-all checked:shadow-sm"
+                            id="work"
+                            name="tag"
+                            type="checkbox"
+                            value="work"
+                          />
+                          <span
+                            class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-white opacity-0 peer-checked:opacity-100"
+                          >
+                            <svg
+                              class="h-3.5 w-3.5"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="1"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <label
+                          class="peer-has-checked:text-primary -mb-1 ml-2 cursor-pointer text-sm text-neutral-500/30 transition-colors select-none"
+                          for="work"
+                        >
+                          work
+                        </label>
+                      </div>
+                      <div
+                        class="mb-4 flex items-center"
+                      >
+                        <div
+                          class="peer relative flex cursor-pointer items-center"
+                        >
+                          <input
+                            aria-describedby="tags-help"
+                            class="peer checked:border-primary checked:bg-primary h-5 w-5 cursor-pointer appearance-none rounded border border-neutral-500/15 transition-all checked:shadow-sm"
+                            id="lifestyle"
+                            name="tag"
+                            type="checkbox"
+                            value="lifestyle"
+                          />
+                          <span
+                            class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-white opacity-0 peer-checked:opacity-100"
+                          >
+                            <svg
+                              class="h-3.5 w-3.5"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="1"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <label
+                          class="peer-has-checked:text-primary -mb-1 ml-2 cursor-pointer text-sm text-neutral-500/30 transition-colors select-none"
+                          for="lifestyle"
+                        >
+                          lifestyle
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <p
+                      class="mb-2 font-medium"
+                    >
+                      Advert Type:
+                    </p>
+                    <div
+                      class="flex flex-wrap gap-2"
+                    >
+                      <div
+                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                      >
+                        <div
+                          class="peer relative flex cursor-pointer items-center"
+                        >
+                          <input
+                            class="peer checked:border-primary checked:bg-primary h-5 w-5 cursor-pointer appearance-none rounded-full border border-neutral-500/15 transition-all"
+                            id="type-buy"
+                            name="type"
+                            type="radio"
+                            value="buy"
+                          />
+                          <span
+                            class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-white opacity-0 peer-checked:opacity-100"
+                          >
+                            <svg
+                              class="h-3.5 w-3.5"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="1"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <label
+                          class="-mb-1 ml-2 cursor-pointer pe-2 text-sm text-neutral-500/30 transition-colors select-none peer-has-checked:text-white"
+                          for="type-buy"
+                        >
+                          Want to Buy
+                        </label>
+                      </div>
+                      <div
+                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                      >
+                        <div
+                          class="peer relative flex cursor-pointer items-center"
+                        >
+                          <input
+                            class="peer checked:border-primary checked:bg-primary h-5 w-5 cursor-pointer appearance-none rounded-full border border-neutral-500/15 transition-all"
+                            id="type-sell"
+                            name="type"
+                            type="radio"
+                            value="sell"
+                          />
+                          <span
+                            class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform text-white opacity-0 peer-checked:opacity-100"
+                          >
+                            <svg
+                              class="h-3.5 w-3.5"
+                              fill="currentColor"
+                              stroke="currentColor"
+                              stroke-width="1"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                clip-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                fill-rule="evenodd"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <label
+                          class="-mb-1 ml-2 cursor-pointer pe-2 text-sm text-neutral-500/30 transition-colors select-none peer-has-checked:text-white"
+                          for="type-sell"
+                        >
+                          Want to Sell
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="flex justify-end"
+                  >
+                    <button
+                      class="btn btn-destructive"
+                      type="reset"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                      >
+                        reset_settings
+                      </span>
+                      <span
+                        class="-mb-0.75"
+                      >
+                        Reset filters
+                      </span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a
+            aria-label="nav-filters"
+            class="nav-item"
+            data-discover="true"
+            href="/adverts/new"
+          >
+            <span
+              class="material-symbols-outlined"
+            >
+              add
+            </span>
+            <span
+              class="-mb-0.75"
+            >
+              New Advert
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="nav-item"
+            href="http://localhost:3001/swagger/"
+            target="_blank"
+          >
+            <span
+              class="material-symbols-outlined"
+            >
+              api
+            </span>
+            <span
+              class="-mb-0.75"
+            >
+              API Documentation
+            </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div
+    class="wrapper only:mt-8"
+  >
+    <h2>
+      Latest Adverts
+    </h2>
+    <ul
+      class="mx-auto grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+    >
+      <li>
+        <a
+          data-discover="true"
+          href="/adverts/1"
+        >
+          <div
+            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Product image"
+                class="h-60 w-full object-cover transition-transform"
+                src="/src/assets/placeholder.webp"
+              />
+              <div
+                class="absolute top-3 right-3"
+              >
+                <span
+                  class="ads-type"
+                >
+                  WANT TO BUY
+                </span>
+              </div>
+            </div>
+            <div
+              class="p-5"
+            >
+              <span
+                class="mb-2 flex text-lg font-bold text-gray-900"
+              >
+                advert 1
+              </span>
+              <div
+                class="mb-2 flex flex-wrap gap-2"
+              >
+                <span
+                  class="text-primary text-sm"
+                >
+                  #
+                  work
+                </span>
+              </div>
+              <div
+                class="flex items-center justify-between"
+              >
+                <h3
+                  class="!m-0 text-lg font-semibold text-teal-600"
+                >
+                  $
+                  5.00
+                </h3>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a
+          data-discover="true"
+          href="/adverts/2"
+        >
+          <div
+            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+          >
+            <div
+              class="relative"
+            >
+              <img
+                alt="Product image"
+                class="h-60 w-full object-cover transition-transform"
+                src="/src/assets/placeholder.webp"
+              />
+              <div
+                class="absolute top-3 right-3"
+              >
+                <span
+                  class="ads-type"
+                >
+                  WANT TO SELL
+                </span>
+              </div>
+            </div>
+            <div
+              class="p-5"
+            >
+              <span
+                class="mb-2 flex text-lg font-bold text-gray-900"
+              >
+                advert 2
+              </span>
+              <div
+                class="mb-2 flex flex-wrap gap-2"
+              >
+                <span
+                  class="text-primary text-sm"
+                >
+                  #
+                  work
+                </span>
+                <span
+                  class="text-primary text-sm"
+                >
+                  #
+                  lifestyle
+                </span>
+              </div>
+              <div
+                class="flex items-center justify-between"
+              >
+                <h3
+                  class="!m-0 text-lg font-semibold text-teal-600"
+                >
+                  $
+                  10.00
+                </h3>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="fixed top-11.5 left-1/2 z-50 -translate-x-1/2"
+  />
+</div>
+`;
+
 exports[`AdvertsPage > should dispatch loader when pending 1`] = `
 <div>
   <nav
@@ -1668,86 +2160,15 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
               </span>
               <div
                 class="mb-2 flex flex-wrap gap-2"
-              >
-                <span
-                  class="text-primary text-sm"
-                >
-                  #
-                  tag1
-                </span>
-              </div>
-              <div
-                class="flex items-center justify-between"
-              >
-                <h3
-                  class="!m-0 text-lg font-semibold text-teal-600"
-                >
-                  $
-                  5.00
-                </h3>
-              </div>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li>
-        <a
-          data-discover="true"
-          href="/adverts/2"
-        >
-          <div
-            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
-          >
-            <div
-              class="relative"
-            >
-              <img
-                alt="Product image"
-                class="h-60 w-full object-cover transition-transform"
-                src="/src/assets/placeholder.webp"
               />
               <div
-                class="absolute top-3 right-3"
-              >
-                <span
-                  class="ads-type"
-                >
-                  WANT TO SELL
-                </span>
-              </div>
-            </div>
-            <div
-              class="p-5"
-            >
-              <span
-                class="mb-2 flex text-lg font-bold text-gray-900"
-              >
-                advert 2
-              </span>
-              <div
-                class="mb-2 flex flex-wrap gap-2"
-              >
-                <span
-                  class="text-primary text-sm"
-                >
-                  #
-                  tag1
-                </span>
-                <span
-                  class="text-primary text-sm"
-                >
-                  #
-                  tag2
-                </span>
-              </div>
-              <div
                 class="flex items-center justify-between"
               >
                 <h3
                   class="!m-0 text-lg font-semibold text-teal-600"
                 >
                   $
-                  10.00
+                  0.00
                 </h3>
               </div>
             </div>

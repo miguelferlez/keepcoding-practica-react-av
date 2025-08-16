@@ -5,7 +5,6 @@ import userEvent from "@testing-library/user-event";
 import LoginPage from "./login-page";
 import type { RootState } from "@/store";
 import { authLogin, uiResetError } from "@/store/actions";
-import type { Mock } from "vitest";
 
 vi.mock("@/store/actions");
 
