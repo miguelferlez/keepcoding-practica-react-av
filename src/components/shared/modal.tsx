@@ -24,7 +24,10 @@ const Modal = ({
   }
 
   return (
-    <div className="fixed inset-0 z-10 flex items-center justify-center bg-black/30">
+    <div
+      className="fixed inset-0 z-10 flex items-center justify-center bg-black/30"
+      role="dialog"
+    >
       <div className="animate-fade-down flex max-w-xs flex-col gap-4 rounded-lg bg-white p-4 shadow-xl md:max-w-md">
         <div className="flex items-center justify-between">
           <h4 className="!mb-0">{title}</h4>
