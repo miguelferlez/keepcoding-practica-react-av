@@ -9,6 +9,11 @@ import type { RootState } from "@/store";
 import { advertsDeleted, advertsDetail, uiResetError } from "@/store/actions";
 
 vi.mock("@/store/actions");
+vi.mock("date-fns", () => {
+  return {
+    formatDistanceToNow: () => "X days",
+  };
+});
 
 describe("AdvertPage", () => {
   const state: RootState = {

@@ -98,7 +98,7 @@ exports[`AdvertPage > should cancel advert deletion when button clicked but moda
             >
               This advert was uploaded
                
-              7 days
+              X days
                ago.
             </p>
           </time>
@@ -210,7 +210,7 @@ exports[`AdvertPage > should dispatch advert deletion when button and modal clic
             >
               This advert was uploaded
                
-              7 days
+              X days
                ago.
             </p>
           </time>
@@ -322,7 +322,7 @@ exports[`AdvertPage > should dispatch advert details 1`] = `
             >
               This advert was uploaded
                
-              7 days
+              X days
                ago.
             </p>
           </time>
@@ -434,7 +434,7 @@ exports[`AdvertPage > should dispatch alert component with error message 1`] = `
             >
               This advert was uploaded
                
-              7 days
+              X days
                ago.
             </p>
           </time>
@@ -624,7 +624,7 @@ exports[`AdvertPage > should dispatch loader when pending 1`] = `
             >
               This advert was uploaded
                
-              7 days
+              X days
                ago.
             </p>
           </time>
