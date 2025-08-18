@@ -12,7 +12,8 @@ function Header() {
         </Link>
         <nav>
           <ul className="flex items-center gap-4">
-            <li>
+            {/* <li>
+              // TODO: integrate i18next in app
               <Popover icon="language">
                 <li>
                   <a href="">🇬🇧</a>
@@ -21,7 +22,7 @@ function Header() {
                   <a href="">🇪🇸</a>
                 </li>
               </Popover>
-            </li>
+            </li> */}
             <li>
               <AuthButton />
             </li>
