@@ -38,7 +38,7 @@ function NewAdvertPage() {
     setSale(value);
   }
 
-  function handlePhotoChange(file: File) {
+  function handlePhotoChange(file?: File) {
     setPhoto(file);
   }
 

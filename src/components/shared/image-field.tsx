@@ -1,7 +1,7 @@
 import { useRef, useState, type ChangeEvent, type DragEvent } from "react";
 
 interface ImageFieldProps {
-  onChange: (file: File) => void;
+  onChange: (file?: File) => void;
 }
 
 const ImageField = ({ onChange, ...props }: ImageFieldProps) => {
@@ -40,6 +40,9 @@ const ImageField = ({ onChange, ...props }: ImageFieldProps) => {
     if (file) {
       showPreview(file);
       onChange(file);
+    } else {
+      showPreview(undefined);
+      onChange(undefined);
     }
   }
 
