@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { Provider } from "react-redux";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NewAdvertPage from "./new-advert-page";
 import type { RootState } from "@/store";
@@ -124,7 +124,7 @@ describe("NewAdvertPage", () => {
     expect(imageInput.files?.[0].name).toBe("image.png");
   });
 
-  it("should dispatch submit with input values", async () => {
+  it("should dispatch advert create with input value (without image)", async () => {
     const { container } = renderComponent(tags, undefined, { adverts: false });
     const nameInput = screen.getByLabelText(/name/i);
     const priceInput = screen.getByLabelText(/price/i);

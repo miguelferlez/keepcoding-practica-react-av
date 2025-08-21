@@ -33,7 +33,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -54,7 +54,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -78,7 +78,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -102,7 +102,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -129,7 +129,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -168,7 +168,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -287,7 +287,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
           href="/adverts/1"
         >
           <div
-            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+            class="group border-primary/15 bg-background overflow-hidden rounded-lg border transition hover:scale-105 hover:shadow-xl"
           >
             <div
               class="relative"
@@ -311,7 +311,7 @@ exports[`AdvertsPage > should dispatch adverts list 1`] = `
               class="p-5"
             >
               <span
-                class="mb-2 flex text-lg font-bold text-gray-900"
+                class="mb-2 flex text-lg font-bold text-gray-900 dark:text-gray-100"
               >
                 advert 1
               </span>
@@ -373,7 +373,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -394,7 +394,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -418,7 +418,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -442,7 +442,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -469,7 +469,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -508,7 +508,7 @@ exports[`AdvertsPage > should dispatch alert component with error message 1`] = 
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -731,7 +731,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -752,7 +752,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -776,7 +776,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -800,7 +800,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -827,7 +827,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -866,7 +866,7 @@ exports[`AdvertsPage > should dispatch empty warning when no adverts 1`] = `
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -1055,7 +1055,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -1076,7 +1076,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -1100,7 +1100,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -1124,7 +1124,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -1232,7 +1232,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -1271,7 +1271,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -1390,7 +1390,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
           href="/adverts/1"
         >
           <div
-            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+            class="group border-primary/15 bg-background overflow-hidden rounded-lg border transition hover:scale-105 hover:shadow-xl"
           >
             <div
               class="relative"
@@ -1414,7 +1414,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
               class="p-5"
             >
               <span
-                class="mb-2 flex text-lg font-bold text-gray-900"
+                class="mb-2 flex text-lg font-bold text-gray-900 dark:text-gray-100"
               >
                 advert 1
               </span>
@@ -1448,7 +1448,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
           href="/adverts/2"
         >
           <div
-            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+            class="group border-primary/15 bg-background overflow-hidden rounded-lg border transition hover:scale-105 hover:shadow-xl"
           >
             <div
               class="relative"
@@ -1472,7 +1472,7 @@ exports[`AdvertsPage > should dispatch filtered adverts 1`] = `
               class="p-5"
             >
               <span
-                class="mb-2 flex text-lg font-bold text-gray-900"
+                class="mb-2 flex text-lg font-bold text-gray-900 dark:text-gray-100"
               >
                 advert 2
               </span>
@@ -1547,7 +1547,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -1568,7 +1568,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -1592,7 +1592,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -1616,7 +1616,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -1643,7 +1643,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -1682,7 +1682,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -1793,7 +1793,7 @@ exports[`AdvertsPage > should dispatch loader when pending 1`] = `
       Latest Adverts
     </h2>
     <div
-      class="fixed top-0 left-0 z-999 block h-full w-full bg-white"
+      class="bg-background fixed top-0 left-0 z-999 block h-full w-full"
     >
       <div
         class="absolute top-2/4 left-1/2 -translate-x-1/2 -translate-y-1/2"
@@ -1876,7 +1876,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
               class="popover-menu invisible origin-top-left -translate-y-2 scale-100 transform opacity-0 transition"
             >
               <div
-                class="absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 bg-white p-4 shadow-md outline-none sm:w-98"
+                class="bg-background absolute -left-18 mt-6 w-72 origin-top-left rounded-lg border border-black/15 p-4 shadow-md outline-none sm:w-98 dark:border-white/15"
                 role="menu"
                 tabindex="-1"
               >
@@ -1897,7 +1897,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
                         type="search"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="name"
                       >
                         Name
@@ -1921,7 +1921,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="min-price"
                       >
                         Minimum price
@@ -1945,7 +1945,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
                         type="number"
                       />
                       <label
-                        class="peer-focus:text-primary pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text bg-white px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
+                        class="peer-focus:text-primary bg-background pointer-events-none absolute top-3.5 left-2.5 origin-left transform cursor-text px-1 text-neutral-500/30 transition-all peer-not-placeholder-shown:-top-2.5 peer-not-placeholder-shown:left-2.5 peer-not-placeholder-shown:scale-90 peer-focus:-top-1.5 peer-focus:left-2.5 peer-focus:scale-90 peer-focus:text-xs"
                         for="max-price"
                       >
                         Maximum price
@@ -1972,7 +1972,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
                       class="flex flex-wrap gap-2"
                     >
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -2011,7 +2011,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
                         </label>
                       </div>
                       <div
-                        class="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm"
+                        class="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm"
                       >
                         <div
                           class="peer relative flex cursor-pointer items-center"
@@ -2130,7 +2130,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
           href="/adverts/1"
         >
           <div
-            class="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl"
+            class="group border-primary/15 bg-background overflow-hidden rounded-lg border transition hover:scale-105 hover:shadow-xl"
           >
             <div
               class="relative"
@@ -2154,7 +2154,7 @@ exports[`AdvertsPage > should dispatch not found warning when filters exclude al
               class="p-5"
             >
               <span
-                class="mb-2 flex text-lg font-bold text-gray-900"
+                class="mb-2 flex text-lg font-bold text-gray-900 dark:text-gray-100"
               >
                 advert 1
               </span>
