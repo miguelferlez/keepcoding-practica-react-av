@@ -111,5 +111,5 @@ h4 {
 }
 
 .ads-type {
-  @apply bg-primary rounded px-2 py-1 text-xs font-medium text-white;
+  @apply bg-primary dark:text-background rounded px-2 py-1 text-xs font-medium text-white;
 }

@@ -1,6 +1,6 @@
 const Loader = () => {
   return (
-    <div className="fixed top-0 left-0 z-999 block h-full w-full bg-white">
+    <div className="bg-background fixed top-0 left-0 z-999 block h-full w-full">
       <div
         role="status"
         className="absolute top-2/4 left-1/2 -translate-x-1/2 -translate-y-1/2"

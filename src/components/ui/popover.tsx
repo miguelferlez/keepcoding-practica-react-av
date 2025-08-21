@@ -20,7 +20,7 @@ const Popover = ({ children, icon }: PopoverProps) => (
     </button>
     <div className="popover-menu invisible origin-top -translate-y-2 scale-95 transform opacity-0 transition">
       <div
-        className="absolute -right-2 mt-4 w-12 origin-top rounded-lg border border-black/15 bg-white p-2 shadow-md outline-none"
+        className="bg-background absolute -right-2 mt-4 w-12 origin-top rounded-lg border border-black/15 p-2 shadow-md outline-none dark:border-white/15"
         role="menu"
       >
         <ul className="flex flex-col justify-center gap-1 text-2xl">

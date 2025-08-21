@@ -7,7 +7,7 @@ interface AdvertCardProps {
 
 function AdvertCard({ advert }: AdvertCardProps) {
   return (
-    <div className="group border-primary/15 overflow-hidden rounded-lg border bg-white transition hover:scale-105 hover:shadow-xl">
+    <div className="group border-primary/15 bg-background overflow-hidden rounded-lg border transition hover:scale-105 hover:shadow-xl">
       <div className="relative">
         <img
           src={advert.photo ? advert.photo : placeholder}
@@ -23,7 +23,7 @@ function AdvertCard({ advert }: AdvertCardProps) {
         </div>
       </div>
       <div className="p-5">
-        <span className="mb-2 flex text-lg font-bold text-gray-900">
+        <span className="mb-2 flex text-lg font-bold text-gray-900 dark:text-gray-100">
           {advert.name}
         </span>
         <div className="mb-2 flex flex-wrap gap-2">

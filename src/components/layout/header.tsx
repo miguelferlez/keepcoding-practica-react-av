@@ -1,9 +1,11 @@
 import { Link } from "react-router";
 import AppLogo from "../icons/app-logo";
-import Popover from "../ui/popover";
 import AuthButton from "@/pages/auth/components/auth-button";
+import { useTheme } from "@/store/hooks";
 
 function Header() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <header className="wrapper">
       <div className="divide-b flex items-center justify-between gap-4 py-4">
@@ -23,6 +25,18 @@ function Header() {
                 </li>
               </Popover>
             </li> */}
+            <li>
+              <button
+                onClick={toggleTheme}
+                className="text-primary flex items-center p-1 transition-opacity hover:opacity-75"
+              >
+                {theme === "dark" ? (
+                  <span className="material-symbols-outlined">bedtime</span>
+                ) : (
+                  <span className="material-symbols-outlined">sunny</span>
+                )}
+              </button>
+            </li>
             <li>
               <AuthButton />
             </li>

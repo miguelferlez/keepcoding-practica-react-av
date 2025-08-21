@@ -41,7 +41,7 @@ function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="bg-background flex min-h-screen flex-col items-center justify-center">
       <div className="xs:border-primary/15 xs:rounded-lg xs:border xs:shadow-xl p-8 sm:max-w-md">
         <div className="flex flex-col gap-4">
           <h2 className="text-center">Log In</h2>

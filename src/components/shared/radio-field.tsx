@@ -7,7 +7,7 @@ interface RadioFieldProps extends ComponentProps<"input"> {
 
 const RadioField = ({ label, ...props }: RadioFieldProps) => {
   return (
-    <div className="has-checked:border-primary has-checked:bg-primary mb-4 flex items-center rounded-full border border-neutral-500/15 bg-white p-2 transition has-checked:shadow-sm">
+    <div className="has-checked:border-primary has-checked:bg-primary bg-background mb-4 flex items-center rounded-full border border-neutral-500/15 p-2 transition has-checked:shadow-sm">
       <div className="peer relative flex cursor-pointer items-center">
         <input
           {...props}

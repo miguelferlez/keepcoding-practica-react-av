@@ -8,7 +8,7 @@ import { setAuthorizationHeader } from "./api/client";
 import ErrorBoundary from "./pages/error/error-boundary";
 import configureStore from "./store";
 import storage from "./utils/storage";
-import ThemeProvider from "./utils/theme-provider";
+import ThemeProvider from "./utils/theme/theme-provider";
 
 const accessToken = storage.get("auth");
 const router = createBrowserRouter([{ path: "*", element: <App /> }]);
