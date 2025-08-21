@@ -8,6 +8,7 @@ import { setAuthorizationHeader } from "./api/client";
 import ErrorBoundary from "./pages/error/error-boundary";
 import configureStore from "./store";
 import storage from "./utils/storage";
+import ThemeProvider from "./utils/theme-provider";
 
 const accessToken = storage.get("auth");
 const router = createBrowserRouter([{ path: "*", element: <App /> }]);
@@ -24,7 +25,9 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <ThemeProvider>
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </Provider>
     </ErrorBoundary>
   </StrictMode>,

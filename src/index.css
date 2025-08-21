@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "tailwindcss-animated";
 
+@custom-variant dark (&:is(.dark *));
+
 :root {
   --font-heading: "Poppins", sans-serif;
   --font-paragraph: "Hind", sans-serif;
@@ -20,8 +22,13 @@
   --font-heading: var(--font-heading);
   --font-paragraph: var(--font-paragraph);
   --font-color: var(--font-color);
+  --color-background: var(--color-background);
   --color-primary: var(--color-primary);
   --color-destructive: var(--color-destructive);
+}
+
+.dark {
+  --color-background: #111111;
 }
 
 * {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from ".";
 import {
   advertsCreated,
@@ -27,6 +27,32 @@ export function useModal() {
     setIsModalOpen(false);
   }
   return { isModalOpen, showModal, closeModal };
+}
+
+export function useTheme() {
+  const initialTheme = (): "light" | "dark" => {
+    const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (stored) {
+      return stored;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const [theme, setTheme] = useState<"light" | "dark">(initialTheme);
+  function toggleTheme() {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  }
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.add("light");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+  return { theme, setTheme, toggleTheme };
 }
 
 export function useLoginAction() {
