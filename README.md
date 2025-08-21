@@ -13,7 +13,7 @@
 
 ## Description
 
-Single Page Application with React + TypeScript and API [nodepop-api](https://github.com/davidjj76/nodepop-api) for testing second hand goods storage service.
+Single Page Application built with Vite, React + TypeScript, styled with TailwindCSS. Backend API via [nodepop-api](https://github.com/davidjj76/nodepop-api) for testing and manipulating product adverts service.
 
 ## Installation
 
@@ -29,9 +29,10 @@ Single Page Application with React + TypeScript and API [nodepop-api](https://gi
 2. Clone the project repository, install its dependencies and run it:
 
    ```bash
-   git clone https://github.com/miguelferlez/keepcoding-practica-react.git
-   cd keepcoding-practica-react
+   git clone https://github.com/miguelferlez/keepcoding-practica-react-av.git
+   cd keepcoding-practica-react-av
    npm install
+   # development
    npm run dev
    ```
 
