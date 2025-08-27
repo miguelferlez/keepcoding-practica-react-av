@@ -17,6 +17,8 @@ Single Page Application built with Vite, React + TypeScript, styled with Tailwin
 
 ## Installation
 
+### Manual installation
+
 1. Clone the API repository, install its dependencies and start it:
 
    ```bash
@@ -35,6 +37,35 @@ Single Page Application built with Vite, React + TypeScript, styled with Tailwin
    # development
    npm run dev
    ```
+
+3. Copy environment variables from .env.example to .env:
+   ```bash
+   cp .env.example .env
+   ```
+   Make sure to check the new .env values to match your configuration.
+
+### Docker
+
+1. Clone the project repository, install its dependencies and run it:
+
+   ```bash
+   git clone https://github.com/miguelferlez/keepcoding-practica-react-av.git
+   cd keepcoding-practica-react-av
+   ```
+
+2. Copy environment variables from .env.example to .env:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Make sure to check the new .env values to match your configuration.
+
+3. Start containers:
+   ```bash
+   docker compose up --build
+   ```
+   This will download nodepop-api image and build the frontend container.
 
 ## Usage
 

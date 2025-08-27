@@ -1,0 +1,28 @@
+services:
+  backend:
+    image: davidjj76/nodepop-api
+    container_name: nodepop-api
+    ports:
+      - "3001:3001"
+    volumes:
+      - nodepop-api-data:/home/node/app/data
+      - nodepop-api-uploads:/home/node/app/uploads
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: nodepop
+    ports:
+      - "5173:5173"
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  nodepop-api-data:
+  nodepop-api-uploads:
