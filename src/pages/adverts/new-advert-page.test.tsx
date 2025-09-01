@@ -175,7 +175,7 @@ describe("NewAdvertPage", () => {
       price: 10,
       tags: ["work", "lifestyle"],
       sale: false,
-      photo: expect.any(File),
+      photo: image,
     });
   });
 
