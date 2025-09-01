@@ -129,22 +129,20 @@ describe("NewAdvertPage", () => {
     const nameInput = screen.getByLabelText(/name/i);
     const priceInput = screen.getByLabelText(/price/i);
     const workTagInput = screen.getByLabelText(/work/i);
-    const lifestyleTagInput = screen.getByLabelText(/lifestyle/i);
-    const buyRadioInput = screen.getByLabelText(/buy/i);
+    const sellRadioInput = screen.getByLabelText(/sell/i);
     const submitButton = screen.getByRole("button");
 
     expect(container).toMatchSnapshot();
-    await userEvent.type(nameInput, "advert");
+    await userEvent.type(nameInput, "advert 1");
     await userEvent.type(priceInput, "10");
     await userEvent.click(workTagInput);
-    await userEvent.click(lifestyleTagInput);
-    await userEvent.click(buyRadioInput);
+    await userEvent.click(sellRadioInput);
     await userEvent.click(submitButton);
     expect(advertsCreated).toHaveBeenCalledWith({
-      name: "advert",
+      name: "advert 1",
       price: 10,
-      tags: ["work", "lifestyle"],
-      sale: false,
+      tags: ["work"],
+      sale: true,
       photo: undefined,
     });
   });
@@ -164,14 +162,14 @@ describe("NewAdvertPage", () => {
 
     expect(container).toMatchSnapshot();
     await userEvent.upload(imageInput, image);
-    await userEvent.type(nameInput, "advert");
+    await userEvent.type(nameInput, "advert 2");
     await userEvent.type(priceInput, "10");
     await userEvent.click(workTagInput);
     await userEvent.click(lifestyleTagInput);
     await userEvent.click(buyRadioInput);
     await userEvent.click(submitButton);
     expect(advertsCreated).toHaveBeenCalledWith({
-      name: "advert",
+      name: "advert 2",
       price: 10,
       tags: ["work", "lifestyle"],
       sale: false,
