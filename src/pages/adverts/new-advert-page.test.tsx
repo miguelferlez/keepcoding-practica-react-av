@@ -124,7 +124,7 @@ describe("NewAdvertPage", () => {
     expect(imageInput.files?.[0].name).toBe("image.png");
   });
 
-  it("should dispatch advert create with input value (without image)", async () => {
+  it("should dispatch advert create with input value without image", async () => {
     const { container } = renderComponent(tags, undefined, { adverts: false });
     const nameInput = screen.getByLabelText(/name/i);
     const priceInput = screen.getByLabelText(/price/i);
@@ -146,6 +146,36 @@ describe("NewAdvertPage", () => {
       tags: ["work", "lifestyle"],
       sale: false,
       photo: undefined,
+    });
+  });
+
+  it("should dispatch advert create with input value with image", async () => {
+    const { container } = renderComponent(tags, undefined, { adverts: false });
+    const nameInput = screen.getByLabelText(/name/i);
+    const priceInput = screen.getByLabelText(/price/i);
+    const workTagInput = screen.getByLabelText(/work/i);
+    const lifestyleTagInput = screen.getByLabelText(/lifestyle/i);
+    const buyRadioInput = screen.getByLabelText(/buy/i);
+    const submitButton = screen.getByRole("button");
+    const imageInput = screen.getByTestId("photo-input") as HTMLInputElement;
+    const image: File = new File(["image-content"], "image.png", {
+      type: "image/png",
+    });
+
+    expect(container).toMatchSnapshot();
+    await userEvent.upload(imageInput, image);
+    await userEvent.type(nameInput, "advert");
+    await userEvent.type(priceInput, "10");
+    await userEvent.click(workTagInput);
+    await userEvent.click(lifestyleTagInput);
+    await userEvent.click(buyRadioInput);
+    await userEvent.click(submitButton);
+    expect(advertsCreated).toHaveBeenCalledWith({
+      name: "advert",
+      price: 10,
+      tags: ["work", "lifestyle"],
+      sale: false,
+      photo: expect.any(File),
     });
   });
 

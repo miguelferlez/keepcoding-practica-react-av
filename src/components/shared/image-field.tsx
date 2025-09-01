@@ -59,6 +59,7 @@ const ImageField = ({ onChange, ...props }: ImageFieldProps) => {
           className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
           accept="image/*"
           onChange={handleChange}
+          data-testid="photo-input"
           {...props}
         />
         <div className="pointer-events-none text-center">
